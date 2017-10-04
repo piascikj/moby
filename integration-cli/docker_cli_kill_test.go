@@ -38,7 +38,7 @@ func (s *DockerSuite) TestKillOffStoppedContainer(c *check.C) {
 }
 
 func (s *DockerSuite) TestKillDifferentUserContainer(c *check.C) {
-	// TODO Windows: Windows does not yet support -u (Feb 2016).
+	// TODO Windows: Windows does not yet support -u (Feb 2016). id:473 gh:474
 	testRequires(c, DaemonIsLinux)
 	out := cli.DockerCmd(c, "run", "-u", "daemon", "-d", "busybox", "top").Combined()
 	cleanedContainerID := strings.TrimSpace(out)
@@ -100,7 +100,7 @@ func (s *DockerSuite) TestKillWithStopSignalWithDifferentSignalShouldKeepRestart
 	cli.WaitRun(c, cid)
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:117 gh:118
 func (s *DockerSuite) TestKillWithInvalidSignal(c *check.C) {
 	out := runSleepingContainer(c, "-d")
 	cid := strings.TrimSpace(out)

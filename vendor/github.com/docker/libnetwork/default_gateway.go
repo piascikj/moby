@@ -129,7 +129,7 @@ func (sb *sandbox) needDefaultGW() bool {
 		if ep.joinInfo != nil && ep.joinInfo.disableGatewayService {
 			continue
 		}
-		// TODO v6 needs to be handled.
+		// TODO v6 needs to be handled. id:364 gh:365
 		if len(ep.Gateway()) > 0 {
 			return false
 		}

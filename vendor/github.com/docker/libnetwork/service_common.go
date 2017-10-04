@@ -185,7 +185,7 @@ func (c *controller) cleanupServiceBindings(cleanupNID string) {
 			}
 
 			// The network is being deleted, erase all the associated service discovery records
-			// TODO(fcrisciani) separate the Load Balancer from the Service discovery, this operation
+			// TODO (fcrisciani) separate the Load Balancer from the Service discovery, this operation id:422 gh:423
 			// can be done safely here, but the rmServiceBinding is still keeping consistency in the
 			// data structures that are tracking the endpoint to IP mapping.
 			c.Lock()
@@ -370,7 +370,7 @@ func (c *controller) rmServiceBinding(svcName, svcID, nID, eID, containerName st
 
 		// Mark the object as deleted so that the add won't use it wrongly
 		s.deleted = true
-		// NOTE The delete from the serviceBindings map has to be the last operation else we are allowing a race between this service
+		// NOTE The delete from the serviceBindings map has to be the last operation else we are allowing a race between this service id:859 gh:860
 		// that is getting deleted and a new service that will be created if the entry is not anymore there
 		delete(c.serviceBindings, skey)
 		c.Unlock()

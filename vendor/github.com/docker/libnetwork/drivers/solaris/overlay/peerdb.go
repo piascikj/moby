@@ -283,7 +283,7 @@ func (d *driver) peerAdd(nid, eid string, peerIP net.IP, peerIPMask net.IPMask,
 		return fmt.Errorf("could not add neigbor entry into the sandbox: %v", err)
 	}
 
-	// XXX Add fdb entry to the bridge for the peer mac
+	// XXX Add fdb entry to the bridge for the peer mac id:654 gh:655
 
 	return nil
 }

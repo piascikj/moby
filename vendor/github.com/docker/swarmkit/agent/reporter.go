@@ -97,7 +97,7 @@ func (sr *statusReporter) run(ctx context.Context) {
 		}
 
 		if sr.closed {
-			// TODO(stevvooe): Add support here for waiting until all
+			// TODO (stevvooe): Add support here for waiting until all id:426 gh:427
 			// statuses are flushed before shutting down.
 			return
 		}

@@ -975,7 +975,7 @@ loop:
 // and unpacks it into the directory at `dest`.
 // The archive may be compressed with one of the following algorithms:
 //  identity (uncompressed), gzip, bzip2, xz.
-// FIXME: specify behavior when target path exists vs. doesn't exist.
+// FIXME: specify behavior when target path exists vs. doesn't exist. id:269 gh:270
 func Untar(tarArchive io.Reader, dest string, options *TarOptions) error {
 	return untarHandler(tarArchive, dest, options, true)
 }

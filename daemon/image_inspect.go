@@ -82,7 +82,7 @@ func (daemon *Daemon) LookupImage(name string) (*types.ImageInspect, error) {
 		Os:              platform,
 		OsVersion:       img.OSVersion,
 		Size:            size,
-		VirtualSize:     size, // TODO: field unused, deprecate
+		VirtualSize:     size, // TODO: field unused, deprecate id:77 gh:78
 		RootFS:          rootFSToAPIType(img.RootFS),
 		Metadata: types.ImageMetadata{
 			LastTagTime: lastUpdated,

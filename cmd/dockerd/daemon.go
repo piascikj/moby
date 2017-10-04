@@ -129,7 +129,7 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 		}()
 	}
 
-	// TODO: extract to newApiServerConfig()
+	// TODO: extract to newApiServerConfig() id:164 gh:165
 	serverConfig := &apiserver.Config{
 		Logging:     true,
 		SocketGroup: cli.Config.SocketGroup,
@@ -238,7 +238,7 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 		return fmt.Errorf("Error validating authorization plugin: %v", err)
 	}
 
-	// TODO: move into startMetricsServer()
+	// TODO: move into startMetricsServer() id:15 gh:16
 	if cli.Config.MetricsAddress != "" {
 		if !d.HasExperimental() {
 			return fmt.Errorf("metrics-addr is only supported when experimental is enabled")
@@ -248,7 +248,7 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 		}
 	}
 
-	// TODO: createAndStartCluster()
+	// TODO: createAndStartCluster() id:38 gh:39
 	name, _ := os.Hostname()
 
 	// Use a buffered channel to pass changes from store watch API to daemon
@@ -342,7 +342,7 @@ func newRouterOptions(config *config.Config, daemon *daemon.Daemon) (routerOptio
 	buildCache, err := fscache.NewFSCache(fscache.Opt{
 		Backend: fscache.NewNaiveCacheBackend(builderStateDir),
 		Root:    builderStateDir,
-		GCPolicy: fscache.GCPolicy{ // TODO: expose this in config
+		GCPolicy: fscache.GCPolicy{ // TODO: expose this in config id:23 gh:24
 			MaxSize:         1024 * 1024 * 512,  // 512MB
 			MaxKeepDuration: 7 * 24 * time.Hour, // 1 week
 		},
@@ -484,7 +484,7 @@ func loadDaemonCliConfig(opts *daemonOptions) (*config.Config, error) {
 	// This is deprecated in 1.13, and, be removed after 3 release cycles.
 	// The following will check the conflict of labels, and report a warning for deprecation.
 	//
-	// TODO: After 3 release cycles (17.12) an error will be returned, and labels will be
+	// TODO: After 3 release cycles (17.12) an error will be returned, and labels will be id:294 gh:295
 	// sanitized to consolidate duplicate key-value pairs (config.Labels = newLabels):
 	//
 	// newLabels, err := daemon.GetConflictFreeLabels(config.Labels)
@@ -543,7 +543,7 @@ func initRouter(opts routerOptions) {
 	opts.api.InitRouter(routers...)
 }
 
-// TODO: remove this from cli and return the authzMiddleware
+// TODO: remove this from cli and return the authzMiddleware id:168 gh:169
 func (cli *DaemonCli) initMiddlewares(s *apiserver.Server, cfg *apiserver.Config, pluginStore plugingetter.PluginGetter) error {
 	v := cfg.Version
 

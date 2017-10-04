@@ -365,7 +365,7 @@ func HasExtension(pb Message, extension *ExtensionDesc) bool {
 		}
 		return false
 	}
-	// TODO: Check types, field numbers, etc.?
+	// TODO: Check types, field numbers, etc.? id:357 gh:358
 	epb, ok := extendable(pb)
 	if !ok {
 		return false
@@ -417,7 +417,7 @@ func clearExtension(pb Message, fieldNum int32) {
 	if !ok {
 		return
 	}
-	// TODO: Check types, field numbers, etc.?
+	// TODO: Check types, field numbers, etc.? id:465 gh:466
 	extmap := epb.extensionsWrite()
 	delete(extmap, fieldNum)
 }

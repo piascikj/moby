@@ -436,7 +436,7 @@ func (pm *Manager) Push(ctx context.Context, name string, metaHeader http.Header
 		po = progress.DiscardOutput()
 	}
 
-	// TODO: replace these with manager
+	// TODO: replace these with manager id:238 gh:239
 	is := &pluginConfigStore{
 		pm:     pm,
 		plugin: p,
@@ -771,7 +771,7 @@ func (pm *Manager) CreateFromContext(ctx context.Context, tarCtx io.ReadCloser, 
 }
 
 func (pm *Manager) validateConfig(config types.PluginConfig) error {
-	return nil // TODO:
+	return nil // TODO: id:340 gh:341
 }
 
 func splitConfigRootFSFromTar(in io.ReadCloser, config *[]byte) io.ReadCloser {

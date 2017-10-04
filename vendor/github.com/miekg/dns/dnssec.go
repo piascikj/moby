@@ -420,7 +420,7 @@ func (rr *RRSIG) Verify(k *DNSKEY, rrset []RR) error {
 
 	sigbuf := rr.sigBuf()           // Get the binary signature data
 	if rr.Algorithm == PRIVATEDNS { // PRIVATEOID
-		// TODO(miek)
+		// TODO (miek) id:753 gh:754
 		// remove the domain name and assume its ours?
 	}
 
@@ -431,7 +431,7 @@ func (rr *RRSIG) Verify(k *DNSKEY, rrset []RR) error {
 
 	switch rr.Algorithm {
 	case RSASHA1, RSASHA1NSEC3SHA1, RSASHA256, RSASHA512, RSAMD5:
-		// TODO(mg): this can be done quicker, ie. cache the pubkey data somewhere??
+		// TODO (mg): this can be done quicker, ie. cache the pubkey data somewhere?? id:537 gh:538
 		pubkey := k.publicKeyRSA() // Get the key
 		if pubkey == nil {
 			return ErrKey

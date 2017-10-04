@@ -56,7 +56,7 @@ type eventLogger func(id, name, action string)
 type ManagerConfig struct {
 	Store              *Store // remove
 	RegistryService    registry.Service
-	LiveRestoreEnabled bool // TODO: remove
+	LiveRestoreEnabled bool // TODO: remove id:605 gh:604
 	LogPluginEvent     eventLogger
 	Root               string
 	ExecRoot           string
@@ -259,7 +259,7 @@ func (pm *Manager) reload() error { // todo: restore
 						if err := os.MkdirAll(propRoot, 0755); err != nil {
 							logrus.Errorf("failed to create PropagatedMount directory at %s: %v", propRoot, err)
 						}
-						// TODO: sanitize PropagatedMount and prevent breakout
+						// TODO: sanitize PropagatedMount and prevent breakout id:234 gh:235
 						p.PropagatedMount = filepath.Join(p.Rootfs, p.PluginObj.Config.PropagatedMount)
 						if err := os.MkdirAll(p.PropagatedMount, 0755); err != nil {
 							logrus.Errorf("failed to create PropagatedMount directory at %s: %v", p.PropagatedMount, err)
@@ -380,7 +380,7 @@ func isEqualPrivilege(a, b types.PluginPrivilege) bool {
 }
 
 func configToRootFS(c []byte) (*image.RootFS, layer.Platform, error) {
-	// TODO @jhowardmsft LCOW - Will need to revisit this. For now, calculate the platform.
+	// TODO @jhowardmsft LCOW - Will need to revisit this. For now, calculate the platform. id:240 gh:241
 	platform := layer.Platform(runtime.GOOS)
 	if system.LCOWSupported() {
 		platform = "linux"

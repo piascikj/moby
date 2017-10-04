@@ -43,7 +43,7 @@ bundle_files(){
 
 control_docker(){
     m=$1; op=$2
-    # NOTE: `docker-machine ssh $m sh -c "foo bar"` does not work
+    # NOTE: `docker-machine ssh $m sh -c "foo bar"` does not work id:299 gh:300
     #       (but `docker-machine ssh $m sh -c "foo\ bar"` works)
     #       Anyway we avoid using `sh -c` here for avoiding confusion
     cat <<EOF | docker-machine ssh $m sudo sh
@@ -74,8 +74,8 @@ install_to(){
     echo "$m: stopping docker"
     control_docker $m stop
     echo "$m: installing docker"
-    # NOTE: GNU tar is required because we use --transform here
-    # TODO: compression (should not be default)
+    # NOTE: GNU tar is required because we use --transform here id:174 gh:175
+    # TODO: compression (should not be default) id:20 gh:21
     tar ch --transform 's/.*\///' $files | docker-machine ssh $m sudo tar Cx $prefix/bin
     echo "$m: starting docker"
     control_docker $m start

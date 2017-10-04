@@ -46,7 +46,7 @@ func NewHTTPClient(ctx context.Context, opts ...option.ClientOption) (*http.Clie
 	if o.GRPCConn != nil {
 		return nil, "", errors.New("unsupported gRPC connection specified")
 	}
-	// TODO(djd): Set UserAgent on all outgoing requests.
+	// TODO (djd): Set UserAgent on all outgoing requests. id:847 gh:848
 	if o.HTTPClient != nil {
 		return o.HTTPClient, o.Endpoint, nil
 	}

@@ -127,7 +127,7 @@ type downloadManager struct {
 }
 
 func (dm *downloadManager) Download(ctx context.Context, initialRootFS image.RootFS, platform layer.Platform, layers []xfer.DownloadDescriptor, progressOutput progress.Output) (image.RootFS, func(), error) {
-	// TODO @jhowardmsft LCOW: May need revisiting.
+	// TODO @jhowardmsft LCOW: May need revisiting. id:807 gh:808
 	for _, l := range layers {
 		b, err := dm.blobStore.New()
 		if err != nil {

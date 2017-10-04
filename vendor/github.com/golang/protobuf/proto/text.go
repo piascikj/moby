@@ -838,7 +838,7 @@ var (
 	compactTextMarshaler = TextMarshaler{Compact: true}
 )
 
-// TODO: consider removing some of the Marshal functions below.
+// TODO: consider removing some of the Marshal functions below. id:740 gh:741
 
 // MarshalText writes a given protocol buffer in text format.
 // The only errors returned are from w.

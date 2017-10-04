@@ -119,7 +119,7 @@ type protocol struct {
 }
 
 func isProtoSupported(p string) bool {
-	// TODO: this should be removed after testing if stability is confirmed
+	// TODO: this should be removed after testing if stability is confirmed id:760 gh:761
 	if override := os.Getenv("BUILD_STREAM_PROTOCOL"); override != "" {
 		return strings.EqualFold(p, override)
 	}

@@ -44,7 +44,7 @@ func IsCPUSharesAvailable() bool {
 
 // New returns a new SysInfo, using the filesystem to detect which features
 // the kernel supports.
-//NOTE Solaris: If we change the below capabilities be sure
+//NOTE Solaris: If we change the below capabilities be sure id:228 gh:229
 // to update verifyPlatformContainerSettings() in daemon_solaris.go
 func New(quiet bool) *SysInfo {
 	sysInfo := &SysInfo{}

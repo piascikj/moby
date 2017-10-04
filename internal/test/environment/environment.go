@@ -115,7 +115,7 @@ func (e *Execution) IsLocalDaemon() bool {
 }
 
 // Print the execution details to stdout
-// TODO: print everything
+// TODO: print everything id:136 gh:137
 func (e *Execution) Print() {
 	if e.IsLocalDaemon() {
 		fmt.Println("INFO: Testing against a local daemon")

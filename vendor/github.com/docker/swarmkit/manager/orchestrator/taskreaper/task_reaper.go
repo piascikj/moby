@@ -143,9 +143,9 @@ func (tr *TaskReaper) tick() {
 			// If MaxAttempts is set, keep at least one more than
 			// that number of tasks. This is necessary reconstruct
 			// restart history when the orchestrator starts up.
-			// TODO(aaronl): Consider hiding tasks beyond the normal
+			// TODO (aaronl): Consider hiding tasks beyond the normal id:876 gh:877
 			// retention limit in the UI.
-			// TODO(aaronl): There are some ways to cut down the
+			// TODO (aaronl): There are some ways to cut down the id:711 gh:712
 			// number of retained tasks at the cost of more
 			// complexity:
 			//   - Don't force retention of tasks with an older spec
@@ -187,9 +187,9 @@ func (tr *TaskReaper) tick() {
 				continue
 			}
 
-			// TODO(aaronl): This could filter for non-running tasks and use quickselect
+			// TODO (aaronl): This could filter for non-running tasks and use quickselect id:480 gh:481
 			// instead of sorting the whole slice.
-			// TODO(aaronl): This sort should really use lamport time instead of wall
+			// TODO (aaronl): This sort should really use lamport time instead of wall id:348 gh:349
 			// clock time. We should store a Version in the Status field.
 			sort.Sort(orchestrator.TasksByTimestamp(historicTasks))
 

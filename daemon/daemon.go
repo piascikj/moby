@@ -426,7 +426,7 @@ func (daemon *Daemon) waitForNetworks(c *container.Container) {
 				continue
 			}
 			// use a longish timeout here due to some slowdowns in libnetwork if the k/v store is on anything other than --net=host
-			// FIXME: why is this slow???
+			// FIXME: why is this slow??? id:103 gh:104
 			logrus.Debugf("Container %s waiting for network to be ready", c.Name)
 			select {
 			case <-daemon.discoveryWatcher.ReadyCh():
@@ -818,7 +818,7 @@ func NewDaemon(config *config.Config, registryService registry.Service, containe
 	}
 	close(d.startupDone)
 
-	// FIXME: this method never returns an error
+	// FIXME: this method never returns an error id:693 gh:694
 	info, _ := d.SystemInfo()
 
 	engineInfo.WithValues(
@@ -984,7 +984,7 @@ func (daemon *Daemon) Mount(container *container.Container) error {
 				daemon.GraphDriverName(container.Platform), container.ID, container.BaseFS, dir)
 		}
 	}
-	container.BaseFS = dir // TODO: combine these fields
+	container.BaseFS = dir // TODO: combine these fields id:203 gh:204
 	return nil
 }
 

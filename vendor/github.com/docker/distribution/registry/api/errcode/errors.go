@@ -25,7 +25,7 @@ func (ec ErrorCode) ErrorCode() ErrorCode {
 
 // Error returns the ID/Value
 func (ec ErrorCode) Error() string {
-	// NOTE(stevvooe): Cannot use message here since it may have unpopulated args.
+	// NOTE (stevvooe): Cannot use message here since it may have unpopulated args. id:408 gh:409
 	return strings.ToLower(strings.Replace(ec.String(), "_", " ", -1))
 }
 
@@ -101,7 +101,7 @@ type Error struct {
 	Message string      `json:"message"`
 	Detail  interface{} `json:"detail,omitempty"`
 
-	// TODO(duglin): See if we need an "args" property so we can do the
+	// TODO (duglin): See if we need an "args" property so we can do the id:850 gh:851
 	// variable substitution right before showing the message to the user
 }
 

@@ -20,7 +20,7 @@ const (
 )
 
 // CommonStateInfo contains the state info common to all platforms.
-type CommonStateInfo struct { // FIXME: event?
+type CommonStateInfo struct { // FIXME: event? id:268 gh:269
 	State     string
 	Pid       uint32
 	ExitCode  uint32

@@ -120,7 +120,7 @@ func TestChangeString(t *testing.T) {
 }
 
 func TestChangesWithNoChanges(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:159 gh:160
 	// as createSampleDir uses symlinks.
 	if runtime.GOOS == "windows" {
 		t.Skip("symlinks on Windows")
@@ -140,7 +140,7 @@ func TestChangesWithNoChanges(t *testing.T) {
 }
 
 func TestChangesWithChanges(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:276 gh:277
 	// as createSampleDir uses symlinks.
 	if runtime.GOOS == "windows" {
 		t.Skip("symlinks on Windows")
@@ -185,7 +185,7 @@ func TestChangesWithChanges(t *testing.T) {
 
 // See https://github.com/docker/docker/pull/13590
 func TestChangesWithChangesGH13590(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:788 gh:789
 	// as createSampleDir uses symlinks.
 	if runtime.GOOS == "windows" {
 		t.Skip("symlinks on Windows")
@@ -245,9 +245,9 @@ func TestChangesWithChangesGH13590(t *testing.T) {
 
 // Create a directory, copy it, make sure we report no changes between the two
 func TestChangesDirsEmpty(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:587 gh:588
 	// as createSampleDir uses symlinks.
-	// TODO Should work for Solaris
+	// TODO Should work for Solaris id:205 gh:206
 	if runtime.GOOS == "windows" || runtime.GOOS == "solaris" {
 		t.Skip("symlinks on Windows; gcp failure on Solaris")
 	}
@@ -333,9 +333,9 @@ func mutateSampleDir(t *testing.T, root string) {
 }
 
 func TestChangesDirsMutated(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:211 gh:212
 	// as createSampleDir uses symlinks.
-	// TODO Should work for Solaris
+	// TODO Should work for Solaris id:280 gh:281
 	if runtime.GOOS == "windows" || runtime.GOOS == "solaris" {
 		t.Skip("symlinks on Windows; gcp failures on Solaris")
 	}
@@ -390,9 +390,9 @@ func TestChangesDirsMutated(t *testing.T) {
 }
 
 func TestApplyLayer(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:790 gh:791
 	// as createSampleDir uses symlinks.
-	// TODO Should work for Solaris
+	// TODO Should work for Solaris id:591 gh:592
 	if runtime.GOOS == "windows" || runtime.GOOS == "solaris" {
 		t.Skip("symlinks on Windows; gcp failures on Solaris")
 	}
@@ -427,7 +427,7 @@ func TestApplyLayer(t *testing.T) {
 }
 
 func TestChangesSizeWithHardlinks(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:208 gh:209
 	// as createSampleDir uses symlinks.
 	if runtime.GOOS == "windows" {
 		t.Skip("hardlinks on Windows")

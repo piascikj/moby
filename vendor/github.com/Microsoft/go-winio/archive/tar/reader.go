@@ -4,7 +4,7 @@
 
 package tar
 
-// TODO(dsymonds):
+// TODO (dsymonds): id:618 gh:619
 //   - pax extensions
 
 import (

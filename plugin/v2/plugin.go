@@ -17,8 +17,8 @@ type Plugin struct {
 	PluginObj       types.Plugin `json:"plugin"` // todo: embed struct
 	pClient         *plugins.Client
 	refCount        int
-	PropagatedMount string // TODO: make private
-	Rootfs          string // TODO: make private
+	PropagatedMount string // TODO: make private id:343 gh:344
+	Rootfs          string // TODO: make private id:809 gh:810
 
 	Config   digest.Digest
 	Blobsums []digest.Digest
@@ -110,7 +110,7 @@ func (p *Plugin) Set(args []string) error {
 		return err
 	}
 
-	// TODO(vieux): lots of code duplication here, needs to be refactored.
+	// TODO (vieux): lots of code duplication here, needs to be refactored. id:606 gh:607
 
 next:
 	for _, s := range sets {

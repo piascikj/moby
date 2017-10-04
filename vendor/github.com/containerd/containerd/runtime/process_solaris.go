@@ -21,7 +21,7 @@ func (p *process) getPidFromFile() (int, error) {
 	cmd.Stdout, cmd.Stderr = outBuf, errBuf
 
 	if err := cmd.Run(); err != nil {
-		// TODO: Improve logic
+		// TODO: Improve logic id:319 gh:320
 		return -1, errContainerNotFound
 	}
 	response := runtimespec.State{}

@@ -30,7 +30,7 @@ func errnoErr(e syscall.Errno) error {
 	case errnoERROR_IO_PENDING:
 		return errERROR_IO_PENDING
 	}
-	// TODO: add more here, after collecting data on the common
+	// TODO: add more here, after collecting data on the common id:535 gh:536
 	// error values see on Windows. (perhaps when running
 	// all.bat?)
 	return e

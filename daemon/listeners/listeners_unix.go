@@ -15,7 +15,7 @@ import (
 )
 
 // Init creates new listeners for the server.
-// TODO: Clean up the fact that socketGroup and tlsConfig aren't always used.
+// TODO: Clean up the fact that socketGroup and tlsConfig aren't always used. id:704 gh:705
 func Init(proto, addr, socketGroup string, tlsConfig *tls.Config) ([]net.Listener, error) {
 	ls := []net.Listener{}
 

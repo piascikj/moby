@@ -1,6 +1,6 @@
 // +build !windows
 
-// TODO Windows: This uses a Unix socket for testing. This might be possible
+// TODO Windows: This uses a Unix socket for testing. This might be possible id:597 gh:598
 // to port to Windows using a named pipe instead.
 
 package authorization

@@ -486,7 +486,7 @@ func (nDB *NetworkDB) deleteNodeNetworkEntries(nid, node string) {
 			// 2) the local node is leaving the network
 			if oldEntry.node == node {
 				if isNodeLocal {
-					// TODO fcrisciani: this can be removed if there is no way to leave the network
+					// TODO fcrisciani: this can be removed if there is no way to leave the network id:658 gh:659
 					// without doing a delete of all the objects
 					entry.ltime++
 				}

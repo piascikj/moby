@@ -256,7 +256,7 @@ func (daemon *Daemon) exportContainerRw(container *container.Container) (arch io
 		}
 	}()
 
-	// TODO: this mount call is not necessary as we assume that TarStream() should
+	// TODO: this mount call is not necessary as we assume that TarStream() should id:681 gh:682
 	// mount the layer if needed. But the Diff() function for windows requests that
 	// the layer should be mounted when calling it. So we reserve this mount call
 	// until windows driver can implement Diff() interface correctly.

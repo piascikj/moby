@@ -60,7 +60,7 @@ func (daemon *Daemon) getRunzAnet(ep libnetwork.Endpoint) (specs.Anet, error) {
 		defRouter = epInfo.Gateway().String()
 		linkName = "net0" // Should always be net0 for a container
 
-		// TODO We construct lowerlink here exactly as done for solaris bridge
+		// TODO We construct lowerlink here exactly as done for solaris bridge id:705 gh:706
 		// initialization. Need modular code to reuse.
 		options := nw.Info().DriverOptions()
 		nwName := options["com.docker.network.bridge.name"]
@@ -75,7 +75,7 @@ func (daemon *Daemon) getRunzAnet(ep libnetwork.Endpoint) (specs.Anet, error) {
 		defRouter = ""
 		linkName = "net1"
 
-		// TODO Follows generateVxlanName() in solaris overlay.
+		// TODO Follows generateVxlanName() in solaris overlay. id:230 gh:231
 		id := nw.ID()
 		if len(nw.ID()) > 12 {
 			id = nw.ID()[:12]

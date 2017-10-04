@@ -13,7 +13,7 @@ import (
 )
 
 func validatePSArgs(psArgs string) error {
-	// NOTE: \\s does not detect unicode whitespaces.
+	// NOTE: \\s does not detect unicode whitespaces. id:158 gh:159
 	// So we use fieldsASCII instead of strings.Fields in parsePSOutput.
 	// See https://github.com/docker/docker/pull/24358
 	// nolint: gosimple

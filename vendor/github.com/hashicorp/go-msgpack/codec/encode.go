@@ -65,7 +65,7 @@ type encDriver interface {
 	encodeString(c charEncoding, v string)
 	encodeSymbol(v string)
 	encodeStringBytes(c charEncoding, v []byte)
-	//TODO
+	//TODO id:393 gh:394
 	//encBignum(f *big.Int)
 	//encStringRunes(c charEncoding, v []rune)
 }
@@ -405,7 +405,7 @@ func (f *encFnInfo) kSlice(rv reflect.Value) {
 		return
 	}
 	for j := 0; j < l; j++ {
-		// TODO: Consider perf implication of encoding odd index values as symbols if type is string
+		// TODO: Consider perf implication of encoding odd index values as symbols if type is string id:508 gh:509
 		f.e.encodeValue(rv.Index(j))
 	}
 }
@@ -449,7 +449,7 @@ func (f *encFnInfo) kArray(rv reflect.Value) {
 		return
 	}
 	for j := 0; j < l; j++ {
-		// TODO: Consider perf implication of encoding odd index values as symbols if type is string
+		// TODO: Consider perf implication of encoding odd index values as symbols if type is string id:899 gh:900
 		f.e.encodeValue(rv.Index(j))
 	}
 }

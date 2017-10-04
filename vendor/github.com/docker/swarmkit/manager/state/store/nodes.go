@@ -20,7 +20,7 @@ func init() {
 					Unique:  true,
 					Indexer: api.NodeIndexerByID{},
 				},
-				// TODO(aluzzardi): Use `indexHostname` instead.
+				// TODO (aluzzardi): Use `indexHostname` instead. id:490 gh:491
 				indexName: {
 					Name:         indexName,
 					AllowMissing: true,

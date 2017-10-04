@@ -147,7 +147,7 @@ func verifyPlatformContainerSettings(daemon *Daemon, hostConfig *containertypes.
 	fixMemorySwappiness(resources)
 	warnings := []string{}
 	sysInfo := sysinfo.New(true)
-	// NOTE: We do not enforce a minimum value for swap limits for zones on Solaris and
+	// NOTE: We do not enforce a minimum value for swap limits for zones on Solaris and id:35 gh:36
 	// therefore we will not do that for Docker container either.
 	if hostConfig.Memory > 0 && !sysInfo.MemoryLimit {
 		warnings = append(warnings, "Your kernel does not support memory limit capabilities. Limitation discarded.")
@@ -163,7 +163,7 @@ func verifyPlatformContainerSettings(daemon *Daemon, hostConfig *containertypes.
 	if hostConfig.Memory > 0 && hostConfig.MemorySwap > 0 && hostConfig.MemorySwap < hostConfig.Memory {
 		return warnings, fmt.Errorf("Minimum memoryswap limit should be larger than memory limit, see usage.")
 	}
-	// Solaris NOTE: We allow and encourage setting the swap without setting the memory limit.
+	// Solaris NOTE: We allow and encourage setting the swap without setting the memory limit. id:63 gh:64
 
 	if hostConfig.MemorySwappiness != nil && !sysInfo.MemorySwappiness {
 		warnings = append(warnings, "Your kernel does not support memory swappiness capabilities, memory swappiness discarded.")
@@ -199,7 +199,7 @@ func verifyPlatformContainerSettings(daemon *Daemon, hostConfig *containertypes.
 		hostConfig.CPUShares = 0
 	}
 
-	// Solaris NOTE: Linux does not do negative checking for CPUShares and Quota here. But it makes sense to.
+	// Solaris NOTE: Linux does not do negative checking for CPUShares and Quota here. But it makes sense to. id:130 gh:131
 	if hostConfig.CPUPeriod > 0 && !sysInfo.CPUCfsPeriod {
 		warnings = append(warnings, "Your kernel does not support CPU cfs period. Period discarded.")
 		logrus.Warnf("Your kernel does not support CPU cfs period. Period discarded.")
@@ -254,7 +254,7 @@ func verifyPlatformContainerSettings(daemon *Daemon, hostConfig *containertypes.
 		logrus.Warnf("IPv4 forwarding is disabled. Networking will not work")
 	}
 
-	// Solaris NOTE: We do not allow setting Linux specific options, so check and warn for all of them.
+	// Solaris NOTE: We do not allow setting Linux specific options, so check and warn for all of them. id:695 gh:696
 
 	if hostConfig.CapAdd != nil || hostConfig.CapDrop != nil {
 		warnings = append(warnings, "Adding or dropping kernel capabilities unsupported on Solaris.Discarding capabilities lists.")

@@ -201,13 +201,13 @@ func (i *IDMappings) Empty() bool {
 }
 
 // UIDs return the UID mapping
-// TODO: remove this once everything has been refactored to use pairs
+// TODO: remove this once everything has been refactored to use pairs id:798 gh:799
 func (i *IDMappings) UIDs() []IDMap {
 	return i.uids
 }
 
 // GIDs return the UID mapping
-// TODO: remove this once everything has been refactored to use pairs
+// TODO: remove this once everything has been refactored to use pairs id:601 gh:602
 func (i *IDMappings) GIDs() []IDMap {
 	return i.gids
 }

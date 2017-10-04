@@ -231,7 +231,7 @@ func TestCmdStreamLargeStderr(t *testing.T) {
 }
 
 func TestCmdStreamBad(t *testing.T) {
-	// TODO Windows: Figure out why this is failing in CI but not locally
+	// TODO Windows: Figure out why this is failing in CI but not locally id:779 gh:780
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows CI machines")
 	}
@@ -478,7 +478,7 @@ func TestCopyWithTarSrcFile(t *testing.T) {
 		t.Fatalf("archiver.CopyWithTar shouldn't throw an error, %s.", err)
 	}
 	_, err = os.Stat(dest)
-	// FIXME Check the content
+	// FIXME Check the content id:579 gh:580
 	if err != nil {
 		t.Fatalf("Destination file should be the same as the source.")
 	}
@@ -507,7 +507,7 @@ func TestCopyWithTarSrcFolder(t *testing.T) {
 		t.Fatalf("archiver.CopyWithTar shouldn't throw an error, %s.", err)
 	}
 	_, err = os.Stat(dest)
-	// FIXME Check the content (the file inside)
+	// FIXME Check the content (the file inside) id:195 gh:196
 	if err != nil {
 		t.Fatalf("Destination folder should contain the source file but did not.")
 	}
@@ -551,7 +551,7 @@ func TestCopyFileWithTarInexistentDestWillCreateIt(t *testing.T) {
 	if err != nil {
 		t.Fatalf("CopyWithTar with an inexistent folder should create it.")
 	}
-	// FIXME Test the src file and content
+	// FIXME Test the src file and content id:152 gh:153
 }
 
 func TestCopyFileWithTarSrcFolder(t *testing.T) {
@@ -605,7 +605,7 @@ func TestCopyFileWithTarSrcFile(t *testing.T) {
 }
 
 func TestTarFiles(t *testing.T) {
-	// TODO Windows: Figure out how to port this test.
+	// TODO Windows: Figure out how to port this test. id:271 gh:272
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -687,7 +687,7 @@ func tarUntar(t *testing.T, origin string, options *TarOptions) ([]Change, error
 }
 
 func TestTarUntar(t *testing.T) {
-	// TODO Windows: Figure out how to fix this test.
+	// TODO Windows: Figure out how to fix this test. id:781 gh:782
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -777,7 +777,7 @@ func TestTarWithOptionsChownOptsAlwaysOverridesIdPair(t *testing.T) {
 }
 
 func TestTarWithOptions(t *testing.T) {
-	// TODO Windows: Figure out how to fix this test.
+	// TODO Windows: Figure out how to fix this test. id:582 gh:583
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -939,7 +939,7 @@ func BenchmarkTarUntarWithLinks(b *testing.B) {
 }
 
 func TestUntarInvalidFilenames(t *testing.T) {
-	// TODO Windows: Figure out how to fix this test.
+	// TODO Windows: Figure out how to fix this test. id:198 gh:199
 	if runtime.GOOS == "windows" {
 		t.Skip("Passes but hits breakoutError: platform and architecture is not supported")
 	}
@@ -967,7 +967,7 @@ func TestUntarInvalidFilenames(t *testing.T) {
 }
 
 func TestUntarHardlinkToSymlink(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:155 gh:156
 	if runtime.GOOS == "windows" {
 		t.Skip("hardlinks on Windows")
 	}
@@ -999,7 +999,7 @@ func TestUntarHardlinkToSymlink(t *testing.T) {
 }
 
 func TestUntarInvalidHardlink(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:273 gh:274
 	if runtime.GOOS == "windows" {
 		t.Skip("hardlinks on Windows")
 	}
@@ -1083,7 +1083,7 @@ func TestUntarInvalidHardlink(t *testing.T) {
 }
 
 func TestUntarInvalidSymlink(t *testing.T) {
-	// TODO Windows. There may be a way of running this, but turning off for now
+	// TODO Windows. There may be a way of running this, but turning off for now id:786 gh:787
 	if runtime.GOOS == "windows" {
 		t.Skip("hardlinks on Windows")
 	}

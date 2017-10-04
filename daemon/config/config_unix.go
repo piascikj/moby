@@ -12,7 +12,7 @@ import (
 
 const (
 	// DefaultIpcMode is default for container's IpcMode, if not set otherwise
-	DefaultIpcMode = "shareable" // TODO: change to private
+	DefaultIpcMode = "shareable" // TODO: change to private id:86 gh:87
 )
 
 // Config defines the configuration of a docker daemon.

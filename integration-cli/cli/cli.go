@@ -15,7 +15,7 @@ import (
 var testEnv *environment.Execution
 
 // SetTestEnvironment sets a static test environment
-// TODO: decouple this package from environment
+// TODO: decouple this package from environment id:66 gh:67
 func SetTestEnvironment(env *environment.Execution) {
 	testEnv = env
 }

@@ -22,7 +22,7 @@ func (c *container) OOM() (OOM, error) {
 func (c *container) Pids() ([]int, error) {
 	var pids []int
 
-	// TODO: This could be racy. Needs more investigation.
+	// TODO: This could be racy. Needs more investigation. id:625 gh:626
 	//we get this information from runz state
 	cmd := exec.Command(c.runtime, "state", c.id)
 	outBuf, errBuf := new(bytes.Buffer), new(bytes.Buffer)

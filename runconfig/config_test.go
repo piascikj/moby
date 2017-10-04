@@ -28,7 +28,7 @@ func TestDecodeContainerConfig(t *testing.T) {
 		image    string
 	)
 
-	//TODO: Should run for Solaris
+	//TODO: Should run for Solaris id:610 gh:611
 	if runtime.GOOS == "solaris" {
 		t.Skip()
 	}

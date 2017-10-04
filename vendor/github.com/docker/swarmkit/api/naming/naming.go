@@ -32,7 +32,7 @@ func Task(t *api.Task) string {
 	return fmt.Sprintf("%s.%s.%s", t.ServiceAnnotations.Name, slot, t.ID)
 }
 
-// TODO(stevvooe): Consolidate "Hostname" style validation here.
+// TODO (stevvooe): Consolidate "Hostname" style validation here. id:667 gh:668
 
 // Runtime returns the runtime name from a given spec.
 func Runtime(t api.TaskSpec) (string, error) {

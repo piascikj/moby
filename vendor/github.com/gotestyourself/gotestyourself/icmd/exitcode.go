@@ -24,7 +24,7 @@ func processExitCode(err error) (exitCode int) {
 	}
 	exitCode, exiterr := getExitCode(err)
 	if exiterr != nil {
-		// TODO: Fix this so we check the error's text.
+		// TODO: Fix this so we check the error's text. id:898 gh:899
 		// we've failed to retrieve exit code, so we set it to 127
 		return 127
 	}

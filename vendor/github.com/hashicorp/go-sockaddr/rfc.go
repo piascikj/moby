@@ -24,7 +24,7 @@ func IsRFC(rfcNum uint, sa SockAddr) bool {
 
 // KnownRFCs returns an initial set of known RFCs.
 //
-// NOTE (sean@): As this list evolves over time, please submit patches to keep
+// NOTE (sean@): As this list evolves over time, please submit patches to keep id:512 gh:513
 // this list current.  If something isn't right, inquire, as it may just be a
 // bug on my part.  Some of the inclusions were based on my judgement as to what
 // would be a useful value (e.g. RFC3330).
@@ -35,7 +35,7 @@ func IsRFC(rfcNum uint, sa SockAddr) bool {
 // * https://www.iana.org/assignments/ipv6-unicast-address-assignments/ipv6-unicast-address-assignments.xhtml
 // * https://www.iana.org/assignments/ipv6-address-space/ipv6-address-space.xhtml
 func KnownRFCs() map[uint]SockAddrs {
-	// NOTE(sean@): Multiple SockAddrs per RFC lend themselves well to a
+	// NOTE (sean@): Multiple SockAddrs per RFC lend themselves well to a id:900 gh:901
 	// RADIX tree, but `ENOTIME`.  Patches welcome.
 	return map[uint]SockAddrs{
 		919: {
@@ -96,7 +96,7 @@ func KnownRFCs() map[uint]SockAddrs {
 
 			// [RFC3068], §2.5 6to4 IPv6 relay anycast address
 			//
-			// NOTE: /120 == 128-(32-24)
+			// NOTE: /120 == 128-(32-24) id:750 gh:751
 			MustIPv6Addr("2002:c058:6301::/120"),
 		},
 		3171: {
@@ -901,7 +901,7 @@ func KnownRFCs() map[uint]SockAddrs {
 		ForwardingBlacklist: { // Pseudo-RFC
 			// Blacklist of non-forwardable IP blocks taken from RFC6890
 			//
-			// TODO: the attributes for forwardable should be
+			// TODO: the attributes for forwardable should be id:532 gh:533
 			// searcahble and embedded in the main list of RFCs
 			// above.
 			MustIPv4Addr("0.0.0.0/8"),

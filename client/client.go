@@ -177,7 +177,7 @@ func NewClient(host string, version string, client *http.Client, httpHeaders map
 	scheme := "http"
 	tlsConfig := resolveTLSConfig(client.Transport)
 	if tlsConfig != nil {
-		// TODO(stevvooe): This isn't really the right way to write clients in Go.
+		// TODO (stevvooe): This isn't really the right way to write clients in Go. id:14 gh:15
 		// `NewClient` should probably only take an `*http.Client` and work from there.
 		// Unfortunately, the model of having a host-ish/url-thingy as the connection
 		// string has us confusing protocol and transport layers. We continue doing
@@ -185,7 +185,7 @@ func NewClient(host string, version string, client *http.Client, httpHeaders map
 		scheme = "https"
 	}
 
-	// TODO: store URL instead of proto/addr/basePath
+	// TODO: store URL instead of proto/addr/basePath id:36 gh:37
 	return &Client{
 		scheme:            scheme,
 		host:              host,

@@ -664,7 +664,7 @@ func (m *Manager) Stop(ctx context.Context, clearData bool) {
 		m.localserver.Stop()
 	})
 	defer timer.Stop()
-	// TODO: we're not waiting on ctx because it very well could be passed from Run,
+	// TODO: we're not waiting on ctx because it very well could be passed from Run, id:471 gh:472
 	// which is already cancelled here. We need to refactor that.
 	select {
 	case <-srvDone:
@@ -1003,14 +1003,14 @@ func (m *Manager) becomeLeader(ctx context.Context) {
 	m.keyManager = keymanager.New(s, keymanager.DefaultConfig())
 	m.roleManager = newRoleManager(s, m.raftNode)
 
-	// TODO(stevvooe): Allocate a context that can be used to
+	// TODO (stevvooe): Allocate a context that can be used to id:345 gh:346
 	// shutdown underlying manager processes when leadership is
 	// lost.
 
 	m.allocator, err = allocator.New(s, m.config.PluginGetter)
 	if err != nil {
 		log.G(ctx).WithError(err).Error("failed to create allocator")
-		// TODO(stevvooe): It doesn't seem correct here to fail
+		// TODO (stevvooe): It doesn't seem correct here to fail id:441 gh:442
 		// creating the allocator but then use it anyway.
 	}
 
@@ -1039,7 +1039,7 @@ func (m *Manager) becomeLeader(ctx context.Context) {
 	}(m.caserver)
 
 	// Start all sub-components in separate goroutines.
-	// TODO(aluzzardi): This should have some kind of error handling so that
+	// TODO (aluzzardi): This should have some kind of error handling so that id:871 gh:872
 	// any component that goes down would bring the entire manager down.
 	if m.allocator != nil {
 		go func(allocator *allocator.Allocator) {

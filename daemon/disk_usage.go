@@ -53,7 +53,7 @@ func (daemon *Daemon) SystemDiskUsage(ctx context.Context) (*types.DiskUsage, er
 	}
 
 	// Get all top images with extra attributes
-	// TODO @jhowardmsft LCOW. This may need revisiting
+	// TODO @jhowardmsft LCOW. This may need revisiting id:65 gh:66
 	allImages, err := daemon.Images(filters.NewArgs(), false, true)
 	if err != nil {
 		return nil, fmt.Errorf("failed to retrieve image list: %v", err)

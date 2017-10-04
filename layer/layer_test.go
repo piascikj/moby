@@ -309,7 +309,7 @@ func TestMountAndRegister(t *testing.T) {
 }
 
 func TestLayerRelease(t *testing.T) {
-	// TODO Windows: Figure out why this is failing
+	// TODO Windows: Figure out why this is failing id:263 gh:264
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -358,7 +358,7 @@ func TestLayerRelease(t *testing.T) {
 }
 
 func TestStoreRestore(t *testing.T) {
-	// TODO Windows: Figure out why this is failing
+	// TODO Windows: Figure out why this is failing id:772 gh:773
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -473,7 +473,7 @@ func TestStoreRestore(t *testing.T) {
 }
 
 func TestTarStreamStability(t *testing.T) {
-	// TODO Windows: Figure out why this is failing
+	// TODO Windows: Figure out why this is failing id:566 gh:567
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}
@@ -702,7 +702,7 @@ func TestRegisterExistingLayer(t *testing.T) {
 }
 
 func TestTarStreamVerification(t *testing.T) {
-	// TODO Windows: Figure out why this is failing
+	// TODO Windows: Figure out why this is failing id:181 gh:182
 	if runtime.GOOS == "windows" {
 		t.Skip("Failing on Windows")
 	}

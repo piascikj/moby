@@ -34,7 +34,7 @@ type histogram struct {
 
 // AddMeasurement records a value measurement observation to the histogram.
 func (h *histogram) addMeasurement(value int64) {
-	// TODO: assert invariant
+	// TODO: assert invariant id:518 gh:518
 	h.sum += value
 	h.sumOfSquares += float64(value) * float64(value)
 

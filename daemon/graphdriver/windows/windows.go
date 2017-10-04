@@ -155,7 +155,7 @@ func (d *Driver) Status() [][2]string {
 }
 
 // panicIfUsedByLcow does exactly what it says.
-// TODO @jhowardmsft - this is a temporary measure for the bring-up of
+// TODO @jhowardmsft - this is a temporary measure for the bring-up of id:43 gh:44
 // Linux containers on Windows. It is a failsafe to ensure that the right
 // graphdriver is used.
 func panicIfUsedByLcow() {
@@ -299,7 +299,7 @@ func (d *Driver) Remove(id string) error {
 		// in RS1 and RS2 building during enumeration when a silo is going away
 		// for example under it, in HCS. AccessIsDenied added to fix 30278.
 		//
-		// TODO @jhowardmsft - For RS3, we can remove the retries. Also consider
+		// TODO @jhowardmsft - For RS3, we can remove the retries. Also consider id:74 gh:75
 		// using platform APIs (if available) to get this more succinctly. Also
 		// consider enhancing the Remove() interface to have context of why
 		// the remove is being called - that could improve efficiency by not

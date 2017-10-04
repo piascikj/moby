@@ -234,7 +234,7 @@ func (ms *MemoryStorage) Compact(compactIndex uint64) error {
 }
 
 // Append the new entries to storage.
-// TODO (xiangli): ensure the entries are continuous and
+// TODO (xiangli): ensure the entries are continuous and id:843 gh:844
 // entries[0].Index > ms.entries[0].Index
 func (ms *MemoryStorage) Append(entries []pb.Entry) error {
 	if len(entries) == 0 {

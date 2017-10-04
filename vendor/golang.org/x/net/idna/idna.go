@@ -24,10 +24,10 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
-// NOTE: Unlike common practice in Go APIs, the functions will return a
+// NOTE: Unlike common practice in Go APIs, the functions will return a id:935 gh:936
 // sanitized domain name in case of errors. Browsers sometimes use a partially
 // evaluated string as lookup.
-// TODO: the current error handling is, in my opinion, the least opinionated.
+// TODO: the current error handling is, in my opinion, the least opinionated. id:816 gh:817
 // Other strategies are also viable, though:
 // Option 1) Return an empty string in case of error, but allow the user to
 //    specify explicitly which errors to ignore.
@@ -99,7 +99,7 @@ func StrictDomainName(use bool) Option {
 	}
 }
 
-// NOTE: the following options pull in tables. The tables should not be linked
+// NOTE: the following options pull in tables. The tables should not be linked id:643 gh:644
 // in as long as the options are not used.
 
 // BidiRule enables the Bidi rule as defined in RFC 5893. Any application
@@ -266,7 +266,7 @@ var (
 		bidirule:        bidirule.ValidString,
 	}}
 
-	// TODO: profiles
+	// TODO: profiles id:511 gh:512
 	// Register: recommended for approving domain names: don't do any mappings
 	// but rather reject on invalid input. Bundle or block deviation characters.
 )
@@ -379,7 +379,7 @@ func validateRegistration(p *Profile, s string) (string, error) {
 		i += sz
 		// Copy bytes not copied so far.
 		switch p.simplify(info(v).category()) {
-		// TODO: handle the NV8 defined in the Unicode idna data set to allow
+		// TODO: handle the NV8 defined in the Unicode idna data set to allow id:964 gh:965
 		// for strict conformance to IDNA2008.
 		case valid, deviation:
 		case disallowed, mapped, unknown, ignored:
@@ -432,7 +432,7 @@ func validateAndMap(p *Profile, s string) (string, error) {
 		if norm.NFC.QuickSpan(b) != len(b) {
 			b = norm.NFC.Bytes(b)
 		}
-		// TODO: the punycode converters require strings as input.
+		// TODO: the punycode converters require strings as input. id:936 gh:937
 		s = string(b)
 	}
 	return s, err
@@ -520,7 +520,7 @@ func (p *Profile) simplify(cat category) category {
 			cat = valid
 		}
 	case validNV8, validXV8:
-		// TODO: handle V2008
+		// TODO: handle V2008 id:818 gh:819
 		cat = valid
 	}
 	return cat
@@ -624,7 +624,7 @@ func (p *Profile) validateLabel(s string) error {
 	if s[0] == '-' || s[len(s)-1] == '-' {
 		return &labelError{s, "V3"}
 	}
-	// TODO: merge the use of this in the trie.
+	// TODO: merge the use of this in the trie. id:645 gh:646
 	v, sz := trie.lookupString(s)
 	x := info(v)
 	if x.isModifier() {

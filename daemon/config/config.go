@@ -162,7 +162,7 @@ type CommonConfig struct {
 	registry.ServiceOptions
 
 	sync.Mutex
-	// FIXME(vdemeester) This part is not that clear and is mainly dependent on cli flags
+	// FIXME (vdemeester) This part is not that clear and is mainly dependent on cli flags id:194 gh:195
 	// It should probably be handled outside this package.
 	ValuesSet map[string]interface{}
 
@@ -255,7 +255,7 @@ func Reload(configFile string, flags *pflag.FlagSet, reload func(*Config)) error
 	// This is deprecated in 1.13, and, be removed after 3 release cycles.
 	// The following will check the conflict of labels, and report a warning for deprecation.
 	//
-	// TODO: After 3 release cycles (17.12) an error will be returned, and labels will be
+	// TODO: After 3 release cycles (17.12) an error will be returned, and labels will be id:32 gh:33
 	// sanitized to consolidate duplicate key-value pairs (config.Labels = newLabels):
 	//
 	// newLabels, err := GetConflictFreeLabels(newConfig.Labels)
@@ -334,7 +334,7 @@ func getConflictFreeConfiguration(configFile string, flags *pflag.FlagSet) (*Con
 		// are not overridden by default truthy values from the flags that were not explicitly set.
 		// See https://github.com/docker/docker/issues/20289 for an example.
 		//
-		// TODO: Rewrite configuration logic to avoid same issue with other nullable values, like numbers.
+		// TODO: Rewrite configuration logic to avoid same issue with other nullable values, like numbers. id:57 gh:58
 		namedOptions := make(map[string]interface{})
 		for key, value := range configSet {
 			f := flags.Lookup(key)

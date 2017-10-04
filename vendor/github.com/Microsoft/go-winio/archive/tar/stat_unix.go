@@ -22,11 +22,11 @@ func statUnix(fi os.FileInfo, h *Header) error {
 	}
 	h.Uid = int(sys.Uid)
 	h.Gid = int(sys.Gid)
-	// TODO(bradfitz): populate username & group.  os/user
+	// TODO (bradfitz): populate username & group.  os/user id:311 gh:312
 	// doesn't cache LookupId lookups, and lacks group
 	// lookup functions.
 	h.AccessTime = statAtime(sys)
 	h.ChangeTime = statCtime(sys)
-	// TODO(bradfitz): major/minor device numbers?
+	// TODO (bradfitz): major/minor device numbers? id:267 gh:268
 	return nil
 }

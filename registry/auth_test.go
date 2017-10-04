@@ -1,6 +1,6 @@
 // +build !solaris
 
-// TODO: Support Solaris
+// TODO: Support Solaris id:811 gh:812
 
 package registry
 

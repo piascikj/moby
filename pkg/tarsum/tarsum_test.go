@@ -406,7 +406,7 @@ func TestTarSums(t *testing.T) {
 
 func TestIteration(t *testing.T) {
 	headerTests := []struct {
-		expectedSum string // TODO(vbatts) it would be nice to get individual sums of each
+		expectedSum string // TODO (vbatts) it would be nice to get individual sums of each id:804 gh:805
 		version     Version
 		hdr         *tar.Header
 		data        []byte
