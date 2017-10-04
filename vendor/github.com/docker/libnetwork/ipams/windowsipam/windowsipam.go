@@ -75,7 +75,7 @@ func (a *allocator) RequestAddress(poolID string, prefAddress net.IP, opts map[s
 		return nil, nil, err
 	}
 
-	// TODO Windows: Remove this once the bug in docker daemon is fixed
+	// TODO Windows: Remove this once the bug in docker daemon is fixed id:314 gh:315
 	// that causes it to throw an exception on nil gateway
 	if prefAddress != nil {
 		return &net.IPNet{IP: prefAddress, Mask: ipNet.Mask}, nil, nil

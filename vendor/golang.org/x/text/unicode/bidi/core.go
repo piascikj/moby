@@ -98,7 +98,7 @@ type paragraph struct {
 // close brackets, after normalization). The embedding levels are optional, but
 // may be supplied to encode embedding levels of styled text.
 //
-// TODO: return an error.
+// TODO: return an error. id:842 gh:843
 func newParagraph(types []Class, pairTypes []bracketType, pairValues []rune, levels level) *paragraph {
 	validateTypes(types)
 	validatePbTypes(pairTypes)
@@ -1001,7 +1001,7 @@ func typeForLevel(level level) Class {
 	return R
 }
 
-// TODO: change validation to not panic
+// TODO: change validation to not panic id:666 gh:667
 
 func validateTypes(types []Class) {
 	if len(types) == 0 {

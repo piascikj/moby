@@ -145,7 +145,7 @@ func newReleasableLayerForImage(img *image.Image, layerStore layer.Store) (build
 	return &releaseableLayer{layerStore: layerStore, roLayer: roLayer}, nil
 }
 
-// TODO: could this use the regular daemon PullImage ?
+// TODO: could this use the regular daemon PullImage ? id:47 gh:48
 func (daemon *Daemon) pullForBuilder(ctx context.Context, name string, authConfigs map[string]types.AuthConfig, output io.Writer, platform string) (*image.Image, error) {
 	ref, err := reference.ParseNormalizedNamed(name)
 	if err != nil {
@@ -185,7 +185,7 @@ func (daemon *Daemon) GetImageAndReleasableLayer(ctx context.Context, refOrID st
 		if err != nil && opts.PullOption == backend.PullOptionNoPull {
 			return nil, nil, err
 		}
-		// TODO: shouldn't we error out if error is different from "not found" ?
+		// TODO: shouldn't we error out if error is different from "not found" ? id:72 gh:73
 		if image != nil {
 			layer, err := newReleasableLayerForImage(image, daemon.stores[opts.Platform].layerStore)
 			return image, layer, err

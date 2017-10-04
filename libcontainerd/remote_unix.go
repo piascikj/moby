@@ -169,7 +169,7 @@ func (r *remote) handleConnectionChange() {
 					system.KillProcess(r.daemonPid)
 				}
 				<-r.daemonWaitCh
-				if err := r.runContainerdDaemon(); err != nil { //FIXME: Handle error
+				if err := r.runContainerdDaemon(); err != nil { //FIXME: Handle error id:146 gh:147
 					logrus.Errorf("libcontainerd: error restarting containerd: %v", err)
 				}
 				continue

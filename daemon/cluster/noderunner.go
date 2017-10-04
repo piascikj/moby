@@ -31,7 +31,7 @@ type nodeRunner struct {
 	repeatedRun     bool
 	cancelReconnect func()
 	stopping        bool
-	cluster         *Cluster // only for accessing config helpers, never call any methods. TODO: change to config struct
+	cluster         *Cluster // only for accessing config helpers, never call any methods. TODO: change to config struct id:30 gh:31
 }
 
 // nodeStartConfig holds configuration needed to start a new node. Exported

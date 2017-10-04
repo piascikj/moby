@@ -275,7 +275,7 @@ release_binaries() {
 		release_build "$GOOS" "$GOARCH"
 	done
 
-	# TODO create redirect from builds/*/i686 to builds/*/i386
+	# TODO create redirect from builds/*/i686 to builds/*/i386 id:98 gh:99
 
 	cat <<EOF | write_to_s3 s3://$BUCKET_PATH/builds/index
 # To install, run the following commands as root:

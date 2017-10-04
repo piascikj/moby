@@ -69,7 +69,7 @@ func (s *DockerSuite) TestRenameCheckNames(c *check.C) {
 	})
 }
 
-// TODO: move to unit test
+// TODO: move to unit test id:478 gh:479
 func (s *DockerSuite) TestRenameInvalidName(c *check.C) {
 	runSleepingContainer(c, "--name", "myname")
 

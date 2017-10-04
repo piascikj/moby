@@ -107,7 +107,7 @@ func (s *Server) CreateNetwork(ctx context.Context, request *api.CreateNetworkRe
 		return nil, err
 	}
 
-	// TODO(mrjana): Consider using `Name` as a primary key to handle
+	// TODO (mrjana): Consider using `Name` as a primary key to handle id:867 gh:868
 	// duplicate creations. See #65
 	n := &api.Network{
 		ID:   identity.NewID(),

@@ -118,7 +118,7 @@ func (is *store) Create(config []byte) (ID, error) {
 		return "", err
 	}
 
-	// TODO @jhowardmsft - LCOW Support. This will need revisiting.
+	// TODO @jhowardmsft - LCOW Support. This will need revisiting. id:712 gh:713
 	// Integrity check - ensure we are creating something for the correct platform
 	if system.LCOWSupported() {
 		if strings.ToLower(img.Platform()) != strings.ToLower(is.platform) {

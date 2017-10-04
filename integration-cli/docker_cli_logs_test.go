@@ -75,7 +75,7 @@ func (s *DockerSuite) TestLogsSeparateStderr(c *check.C) {
 }
 
 func (s *DockerSuite) TestLogsStderrInStdout(c *check.C) {
-	// TODO Windows: Needs investigation why this fails. Obtained string includes
+	// TODO Windows: Needs investigation why this fails. Obtained string includes id:113 gh:114
 	// a bunch of ANSI escape sequences before the "stderr_log" message.
 	testRequires(c, DaemonIsLinux)
 	msg := "stderr_log"
@@ -178,7 +178,7 @@ func (s *DockerSuite) TestLogsSince(c *check.C) {
 }
 
 func (s *DockerSuite) TestLogsSinceFutureFollow(c *check.C) {
-	// TODO Windows TP5 - Figure out why this test is so flakey. Disabled for now.
+	// TODO Windows TP5 - Figure out why this test is so flakey. Disabled for now. id:210 gh:211
 	testRequires(c, DaemonIsLinux)
 	name := "testlogssincefuturefollow"
 	out, _ := dockerCmd(c, "run", "-d", "--name", name, "busybox", "/bin/sh", "-c", `for i in $(seq 1 5); do echo log$i; sleep 1; done`)
@@ -212,7 +212,7 @@ func (s *DockerSuite) TestLogsSinceFutureFollow(c *check.C) {
 
 // Regression test for #8832
 func (s *DockerSuite) TestLogsFollowSlowStdoutConsumer(c *check.C) {
-	// TODO Windows: Fix this test for TP5.
+	// TODO Windows: Fix this test for TP5. id:739 gh:740
 	testRequires(c, DaemonIsLinux)
 	expected := 150000
 	out, _ := dockerCmd(c, "run", "-d", "busybox", "/bin/sh", "-c", fmt.Sprintf("usleep 600000; yes X | head -c %d", expected))

@@ -18,7 +18,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// XXX OVERLAY_SOLARIS
+// XXX OVERLAY_SOLARIS id:856 gh:857
 // Might need changes for names/constant values in solaris
 const (
 	networkType  = "overlay"

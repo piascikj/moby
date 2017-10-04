@@ -61,7 +61,7 @@ type Message struct {
 // Used to control GELF chunking.  Should be less than (MTU - len(UDP
 // header)).
 //
-// TODO: generate dynamically using Path MTU Discovery?
+// TODO: generate dynamically using Path MTU Discovery? id:823 gh:824
 const (
 	ChunkSize        = 1420
 	chunkedHeaderLen = 12

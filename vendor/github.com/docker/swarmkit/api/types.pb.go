@@ -163,7 +163,7 @@ func (RaftMemberStatus_Reachability) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptorTypes, []int{13, 0}
 }
 
-// TODO(aluzzardi) These should be using `gogoproto.enumvalue_customname`.
+// TODO (aluzzardi) These should be using `gogoproto.enumvalue_customname`. id:460 gh:461
 type NodeStatus_State int32
 
 const (
@@ -986,7 +986,7 @@ func (*RestartPolicy) ProtoMessage()               {}
 func (*RestartPolicy) Descriptor() ([]byte, []int) { return fileDescriptorTypes, []int{17} }
 
 // UpdateConfig specifies the rate and policy of updates.
-// TODO(aluzzardi): Consider making this a oneof with RollingStrategy and LockstepStrategy.
+// TODO (aluzzardi): Consider making this a oneof with RollingStrategy and LockstepStrategy. id:332 gh:333
 type UpdateConfig struct {
 	// Maximum number of tasks to be updated in one iteration.
 	// 0 means unlimited parallelism.
@@ -1091,7 +1091,7 @@ type TaskStatus struct {
 	//
 	// 	FAILED, REJECTED
 	//
-	// TODO(stevvooe) Integrate this field with the error interface.
+	// TODO (stevvooe) Integrate this field with the error interface. id:432 gh:433
 	Err string `protobuf:"bytes,4,opt,name=err,proto3" json:"err,omitempty"`
 	// Container status contains container specific status information.
 	//

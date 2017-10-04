@@ -85,7 +85,7 @@ func (s *imageRouter) postImagesCreate(ctx context.Context, w http.ResponseWrite
 	)
 	defer output.Close()
 
-	// TODO @jhowardmsft LCOW Support: Eventually we will need an API change
+	// TODO @jhowardmsft LCOW Support: Eventually we will need an API change id:5 gh:6
 	// so that platform comes from (for example) r.Form.Get("platform"). For
 	// the initial implementation, we assume that the platform is the
 	// runtime OS of the host. It will also need a validation function such
@@ -308,7 +308,7 @@ func (s *imageRouter) getImagesJSON(ctx context.Context, w http.ResponseWriter, 
 	}
 
 	filterParam := r.Form.Get("filter")
-	// FIXME(vdemeester) This has been deprecated in 1.13, and is target for removal for v17.12
+	// FIXME (vdemeester) This has been deprecated in 1.13, and is target for removal for v17.12 id:6 gh:7
 	if filterParam != "" {
 		imageFilters.Add("reference", filterParam)
 	}

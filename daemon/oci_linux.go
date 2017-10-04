@@ -614,7 +614,7 @@ func setMounts(daemon *Daemon, s *specs.Spec, c *container.Container, mounts []c
 		}
 	}
 
-	// TODO: until a kernel/mount solution exists for handling remount in a user namespace,
+	// TODO: until a kernel/mount solution exists for handling remount in a user namespace, id:82 gh:83
 	// we must clear the readonly flag for the cgroups mount (@mrunalp concurs)
 	if uidMap := daemon.idMappings.UIDs(); uidMap != nil || c.HostConfig.Privileged {
 		for i, m := range s.Mounts {
@@ -799,7 +799,7 @@ func (daemon *Daemon) createSpec(c *container.Container) (*specs.Spec, error) {
 
 			s.Hooks = &specs.Hooks{
 				Prestart: []specs.Hook{{
-					Path: target, // FIXME: cross-platform
+					Path: target, // FIXME: cross-platform id:150 gh:151
 					Args: []string{"libnetwork-setkey", c.ID, daemon.netController.ID()},
 				}},
 			}

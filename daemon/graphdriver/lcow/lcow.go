@@ -51,7 +51,7 @@
 //        -- Possible values:      >=0
 //        -- Default if omitted:  300
 
-// TODO: Grab logs from SVM at terminate or errors
+// TODO: Grab logs from SVM at terminate or errors id:134 gh:135
 
 package lcow
 
@@ -123,7 +123,7 @@ type Driver struct {
 	options            []string   // Graphdriver options we are initialised with.
 	globalMode         bool       // Indicates if running in an unsafe/global service VM mode.
 
-	// NOTE: It is OK to use a cache here because Windows does not support
+	// NOTE: It is OK to use a cache here because Windows does not support id:698 gh:699
 	// restoring containers when the daemon dies.
 	serviceVms *serviceVMMap // Map of the configs representing the service VM(s) we are running.
 }
@@ -465,7 +465,7 @@ func (d *Driver) String() string {
 func (d *Driver) Status() [][2]string {
 	return [][2]string{
 		{"LCOW", ""},
-		// TODO: Add some more info here - mode, home, ....
+		// TODO: Add some more info here - mode, home, .... id:215 gh:216
 	}
 }
 
@@ -824,7 +824,7 @@ func (d *Driver) ApplyDiff(id, parent string, diff io.Reader) (int64, error) {
 		return 0, fmt.Errorf("lcowdriver: applydiff: svm failed to boot: %s", err)
 	}
 
-	// TODO @jhowardmsft - the retries are temporary to overcome platform reliablity issues.
+	// TODO @jhowardmsft - the retries are temporary to overcome platform reliablity issues. id:41 gh:42
 	// Obviously this will be removed as platform bugs are fixed.
 	retries := 0
 	for {
@@ -845,7 +845,7 @@ func (d *Driver) ApplyDiff(id, parent string, diff io.Reader) (int64, error) {
 // The layer should not be mounted when calling this function.
 func (d *Driver) Changes(id, parent string) ([]archive.Change, error) {
 	logrus.Debugf("lcowdriver: changes: id %s parent %s", id, parent)
-	// TODO @gupta-ak. Needs implementation with assistance from service VM
+	// TODO @gupta-ak. Needs implementation with assistance from service VM id:71 gh:72
 	return nil, nil
 }
 
@@ -854,7 +854,7 @@ func (d *Driver) Changes(id, parent string) ([]archive.Change, error) {
 // relative to its base filesystem directory.
 func (d *Driver) DiffSize(id, parent string) (size int64, err error) {
 	logrus.Debugf("lcowdriver: diffsize: id %s", id)
-	// TODO @gupta-ak. Needs implementation with assistance from service VM
+	// TODO @gupta-ak. Needs implementation with assistance from service VM id:137 gh:138
 	return 0, nil
 }
 

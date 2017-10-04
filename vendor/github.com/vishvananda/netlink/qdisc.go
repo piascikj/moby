@@ -59,7 +59,7 @@ func HandleStr(handle uint32) string {
 }
 
 func Percentage2u32(percentage float32) uint32 {
-	// FIXME this is most likely not the best way to convert from % to uint32
+	// FIXME this is most likely not the best way to convert from % to uint32 id:922 gh:923
 	if percentage == 100 {
 		return math.MaxUint32
 	}
@@ -192,7 +192,7 @@ type Tbf struct {
 	Buffer   uint32
 	Peakrate uint64
 	Minburst uint32
-	// TODO: handle other settings
+	// TODO: handle other settings id:791 gh:792
 }
 
 func (qdisc *Tbf) Attrs() *QdiscAttrs {

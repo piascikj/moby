@@ -3,7 +3,7 @@
 set +xe
 SCRIPT_VER="Wed Apr 20 18:30:19 UTC 2016"
 
-# TODO to make (even) more resilient: 
+# TODO to make (even) more resilient:  id:708 gh:709
 #  - Wait for daemon to be running before executing docker commands
 #  - Check if jq is installed
 #  - Make sure bash is v4.3 or later. Can't do until all Azure nodes on the latest version

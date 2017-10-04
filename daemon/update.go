@@ -78,7 +78,7 @@ func (daemon *Daemon) update(name string, hostConfig *container.HostConfig) erro
 	if container.IsRunning() && !container.IsRestarting() {
 		if err := daemon.containerd.UpdateResources(container.ID, toContainerdResources(hostConfig.Resources)); err != nil {
 			restoreConfig = true
-			// TODO: it would be nice if containerd responded with better errors here so we can classify this better.
+			// TODO: it would be nice if containerd responded with better errors here so we can classify this better. id:56 gh:57
 			return errCannotUpdate(container.ID, systemError{err})
 		}
 	}

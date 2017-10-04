@@ -410,7 +410,7 @@ func checkValidParent(img, parent *image.Image) bool {
 }
 
 func checkCompatibleOS(os string) error {
-	// TODO @jhowardmsft LCOW - revisit for simultaneous platforms
+	// TODO @jhowardmsft LCOW - revisit for simultaneous platforms id:286 gh:287
 	platform := runtime.GOOS
 	if system.LCOWSupported() {
 		platform = "linux"

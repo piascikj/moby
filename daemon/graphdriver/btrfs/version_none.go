@@ -2,7 +2,7 @@
 
 package btrfs
 
-// TODO(vbatts) remove this work-around once supported linux distros are on
+// TODO (vbatts) remove this work-around once supported linux distros are on id:209 gh:210
 // btrfs utilities of >= 3.16.1
 
 func btrfsBuildVersion() string {

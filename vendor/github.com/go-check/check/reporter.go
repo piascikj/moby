@@ -55,7 +55,7 @@ func (ow *outputWriter) WriteCallProblem(label string, c *C) {
 
 func (ow *outputWriter) WriteCallSuccess(label string, c *C) {
 	if ow.Stream || (ow.Verbose && c.kind == testKd) {
-		// TODO Use a buffer here.
+		// TODO Use a buffer here. id:887 gh:888
 		var suffix string
 		if c.reason != "" {
 			suffix = " (" + c.reason + ")"

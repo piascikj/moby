@@ -13,7 +13,7 @@ import (
 )
 
 func TestHardLinkOrder(t *testing.T) {
-	//TODO Should run for Solaris
+	//TODO Should run for Solaris id:202 gh:203
 	if runtime.GOOS == "solaris" {
 		t.Skip("gcp failures on Solaris")
 	}

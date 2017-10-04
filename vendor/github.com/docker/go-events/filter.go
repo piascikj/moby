@@ -42,7 +42,7 @@ func (f *Filter) Write(event Event) error {
 
 // Close the filter and allow no more events to pass through.
 func (f *Filter) Close() error {
-	// TODO(stevvooe): Not all sinks should have Close.
+	// TODO (stevvooe): Not all sinks should have Close. id:413 gh:414
 	if f.closed {
 		return nil
 	}

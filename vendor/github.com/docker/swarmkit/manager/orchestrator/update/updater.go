@@ -183,7 +183,7 @@ func (u *Updater) Run(ctx context.Context, slots []orchestrator.Slot) {
 	}
 
 	if parallelism == 0 {
-		// TODO(aluzzardi): We could try to optimize unlimited parallelism by performing updates in a single
+		// TODO (aluzzardi): We could try to optimize unlimited parallelism by performing updates in a single id:447 gh:448
 		// goroutine using a batch transaction.
 		parallelism = len(dirtySlots)
 	}
@@ -300,7 +300,7 @@ slotsLoop:
 		}
 	}
 
-	// TODO(aaronl): Potentially roll back the service if not enough tasks
+	// TODO (aaronl): Potentially roll back the service if not enough tasks id:878 gh:879
 	// have reached RUNNING by this point.
 
 	if !stopped {
@@ -417,7 +417,7 @@ func (u *Updater) updateTask(ctx context.Context, slot orchestrator.Slot, update
 	}
 
 	// Wait for the new task to come up.
-	// TODO(aluzzardi): Consider adding a timeout here.
+	// TODO (aluzzardi): Consider adding a timeout here. id:713 gh:714
 	for {
 		select {
 		case e := <-taskUpdates:

@@ -98,7 +98,7 @@ if [ "$AUTO_GOPATH" ]; then
 
 	if [ "$(go env GOOS)" = 'solaris' ]; then
 		# sys/unix is installed outside the standard library on solaris
-		# TODO need to allow for version change, need to get version from go
+		# TODO need to allow for version change, need to get version from go id:62 gh:63
 		export GO_VERSION=${GO_VERSION:-"1.8.1"}
 		export GOPATH="${GOPATH}:/usr/lib/gocode/${GO_VERSION}"
 	fi

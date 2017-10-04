@@ -35,7 +35,7 @@ func CheckTasks(ctx context.Context, s *store.MemoryStore, readTx store.ReadTx, 
 				continue
 			}
 
-			// TODO(aluzzardi): We should NOT retrieve the service here.
+			// TODO (aluzzardi): We should NOT retrieve the service here. id:347 gh:348
 			service := store.GetService(readTx, t.ServiceID)
 			if service == nil {
 				// Service was deleted
@@ -87,7 +87,7 @@ func CheckTasks(ctx context.Context, s *store.MemoryStore, readTx store.ReadTx, 
 					if restartDelay > 0 {
 						_ = batch.Update(func(tx store.Tx) error {
 							t := store.GetTask(tx, t.ID)
-							// TODO(aluzzardi): This is shady as well. We should have a more generic condition.
+							// TODO (aluzzardi): This is shady as well. We should have a more generic condition. id:445 gh:446
 							if t == nil || t.DesiredState != api.TaskStateReady {
 								return nil
 							}

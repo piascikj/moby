@@ -181,7 +181,7 @@ func (c *cancelCtx) cancel(removeFromParent bool, err error) {
 	c.err = err
 	close(c.done)
 	for child := range c.children {
-		// NOTE: acquiring the child's lock while holding parent's lock.
+		// NOTE: acquiring the child's lock while holding parent's lock. id:795 gh:796
 		child.cancel(false, err)
 	}
 	c.children = nil

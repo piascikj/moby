@@ -50,7 +50,7 @@ retry:
 	if backoff := rs.strategy.Proceed(event); backoff > 0 {
 		select {
 		case <-time.After(backoff):
-			// TODO(stevvooe): This branch holds up the next try. Before, we
+			// TODO (stevvooe): This branch holds up the next try. Before, we id:650 gh:651
 			// would simply break to the "retry" label and then possibly wait
 			// again. However, this requires all retry strategies to have a
 			// large probability of probing the sync for success, rather than

@@ -1,6 +1,6 @@
 // +build !windows,!solaris
 
-// TODO: Create new file for Solaris which tests config parameters
+// TODO: Create new file for Solaris which tests config parameters id:16 gh:17
 // as described in daemon/config_solaris.go
 
 package main

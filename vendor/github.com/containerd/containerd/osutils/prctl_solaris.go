@@ -6,7 +6,7 @@ import (
 	"errors"
 )
 
-//Solaris TODO
+//Solaris TODO id:831 gh:832
 
 // GetSubreaper returns the subreaper setting for the calling process
 func GetSubreaper() (int, error) {

@@ -45,7 +45,7 @@ type ConnTagInfo struct {
 	RemoteAddr net.Addr
 	// LocalAddr is the local address of the corresponding connection.
 	LocalAddr net.Addr
-	// TODO add QOS related fields.
+	// TODO add QOS related fields. id:873 gh:874
 }
 
 // RPCTagInfo defines the relevant information needed by RPC context tagger.

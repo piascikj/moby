@@ -35,7 +35,7 @@ func NewTagger(backend ImageComponent, stdout io.Writer, names []string) (*Tagge
 // TagImages creates image tags for the imageID
 func (bt *Tagger) TagImages(imageID image.ID) error {
 	for _, rt := range bt.repoAndTags {
-		// TODO @jhowardmsft LCOW support. Will need revisiting.
+		// TODO @jhowardmsft LCOW support. Will need revisiting. id:0 gh:1
 		platform := runtime.GOOS
 		if system.LCOWSupported() {
 			platform = "linux"

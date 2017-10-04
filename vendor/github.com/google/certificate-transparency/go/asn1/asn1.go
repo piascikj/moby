@@ -810,7 +810,7 @@ func parseField(v reflect.Value, bytes []byte, initOffset int, params fieldParam
 			err = err1
 		}
 		return
-	// TODO(dfc) Add support for the remaining integer types
+	// TODO (dfc) Add support for the remaining integer types id:385 gh:386
 	case reflect.Struct:
 		structType := fieldType
 

@@ -107,7 +107,7 @@ func (clnt *client) Create(containerID string, checkpoint string, checkpointDir 
 
 	// spec.Linux must be nil for Windows containers, but spec.Windows will be filled in regardless of container platform.
 	// This is a temporary workaround due to LCOW requiring layer folder paths, which are stored under spec.Windows.
-	// TODO: @darrenstahlmsft fix this once the OCI spec is updated to support layer folder paths for LCOW
+	// TODO: @darrenstahlmsft fix this once the OCI spec is updated to support layer folder paths for LCOW id:775 gh:776
 	if spec.Linux == nil {
 		return clnt.createWindows(containerID, checkpoint, checkpointDir, spec, attachStdio, options...)
 	}
@@ -190,7 +190,7 @@ func (clnt *client) createWindows(containerID string, checkpoint string, checkpo
 
 	if configuration.HvPartition {
 		// We don't currently support setting the utility VM image explicitly.
-		// TODO @swernli/jhowardmsft circa RS3/4, this may be re-locatable.
+		// TODO @swernli/jhowardmsft circa RS3/4, this may be re-locatable. id:571 gh:572
 		if spec.Windows.HyperV.UtilityVMPath != "" {
 			return errors.New("runtime does not support an explicit utility VM path for Hyper-V containers")
 		}
@@ -801,7 +801,7 @@ func (clnt *client) Stats(containerID string) (*Stats, error) {
 func (clnt *client) Restore(containerID string, _ StdioCallback, unusedOnWindows ...CreateOption) error {
 	logrus.Debugf("libcontainerd: Restore(%s)", containerID)
 
-	// TODO Windows: On RS1, a re-attach isn't possible.
+	// TODO Windows: On RS1, a re-attach isn't possible. id:187 gh:188
 	// However, there is a scenario in which there is an issue.
 	// Consider a background container. The daemon dies unexpectedly.
 	// HCS will still have the compute service alive and running.

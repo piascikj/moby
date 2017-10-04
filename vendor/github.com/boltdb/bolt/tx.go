@@ -149,7 +149,7 @@ func (tx *Tx) Commit() error {
 		return ErrTxNotWritable
 	}
 
-	// TODO(benbjohnson): Use vectorized I/O to write out dirty pages.
+	// TODO (benbjohnson): Use vectorized I/O to write out dirty pages. id:388 gh:389
 
 	// Rebalance nodes which have had deletions.
 	var startTime = time.Now()

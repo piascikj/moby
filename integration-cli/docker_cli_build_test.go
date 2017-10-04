@@ -332,7 +332,7 @@ func (s *DockerSuite) TestBuildEnvOverwrite(c *check.C) {
 
 }
 
-// FIXME(vdemeester) why we disabled cache here ?
+// FIXME (vdemeester) why we disabled cache here ? id:183 gh:184
 func (s *DockerSuite) TestBuildOnBuildCmdEntrypointJSON(c *check.C) {
 	name1 := "onbuildcmd"
 	name2 := "onbuildgenerated"
@@ -349,7 +349,7 @@ ONBUILD RUN ["true"]`))
 	result.Assert(c, icmd.Expected{Out: "hello world"})
 }
 
-// FIXME(vdemeester) why we disabled cache here ?
+// FIXME (vdemeester) why we disabled cache here ? id:720 gh:721
 func (s *DockerSuite) TestBuildOnBuildEntrypointJSON(c *check.C) {
 	name1 := "onbuildcmd"
 	name2 := "onbuildgenerated"
@@ -388,7 +388,7 @@ func (s *DockerSuite) TestBuildCacheAdd(c *check.C) {
 }
 
 func (s *DockerSuite) TestBuildLastModified(c *check.C) {
-	// Temporary fix for #30890. TODO @jhowardmsft figure out what
+	// Temporary fix for #30890. TODO @jhowardmsft figure out what id:298 gh:299
 	// has changed in the master busybox image.
 	testRequires(c, DaemonIsLinux)
 
@@ -2708,7 +2708,7 @@ USER 1042:1043
 RUN [ "$(id -u):$(id -g)/$(id -un):$(id -gn)/$(id -G):$(id -Gn)" = '1042:1043/1042:1043/1043:1043' ]`))
 }
 
-// FIXME(vdemeester) rename this test (and probably "merge" it with the one below TestBuildEnvUsage2)
+// FIXME (vdemeester) rename this test (and probably "merge" it with the one below TestBuildEnvUsage2) id:73 gh:74
 func (s *DockerSuite) TestBuildEnvUsage(c *check.C) {
 	// /docker/world/hello is not owned by the correct user
 	testRequires(c, NotUserNamespace)
@@ -2739,7 +2739,7 @@ RUN    [ "$ghi" = "def" ]
 	))
 }
 
-// FIXME(vdemeester) rename this test (and probably "merge" it with the one above TestBuildEnvUsage)
+// FIXME (vdemeester) rename this test (and probably "merge" it with the one above TestBuildEnvUsage) id:104 gh:105
 func (s *DockerSuite) TestBuildEnvUsage2(c *check.C) {
 	// /docker/world/hello is not owned by the correct user
 	testRequires(c, NotUserNamespace)
@@ -3183,7 +3183,7 @@ func (s *DockerSuite) TestBuildOnBuildOutput(c *check.C) {
 	})
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:186 gh:187
 func (s *DockerSuite) TestBuildInvalidTag(c *check.C) {
 	name := "abcd:" + stringutils.GenerateRandomAlphaOnlyString(200)
 	buildImage(name, build.WithDockerfile("FROM "+minimalBaseImage()+"\nMAINTAINER quux\n")).Assert(c, icmd.Expected{
@@ -3521,7 +3521,7 @@ func (s *DockerSuite) TestBuildNotVerboseFailure(c *check.C) {
 func (s *DockerSuite) TestBuildNotVerboseFailureRemote(c *check.C) {
 	// This test ensures that when given a wrong URL, stderr in quiet mode and
 	// stderr in verbose mode are identical.
-	// TODO(vdemeester) with cobra, stdout has a carriage return too much so this test should not check stdout
+	// TODO (vdemeester) with cobra, stdout has a carriage return too much so this test should not check stdout id:722 gh:723
 	URL := "http://something.invalid"
 	name := "quiet_build_wrong_remote"
 	quietResult := buildImage(name, cli.WithFlags("-q"), build.WithContextPath(URL))
@@ -3650,7 +3650,7 @@ RUN [ ! -e /injected ]`),
 func (s *DockerSuite) TestBuildVolumesRetainContents(c *check.C) {
 	// /foo/file gets permission denied for the user
 	testRequires(c, NotUserNamespace)
-	testRequires(c, DaemonIsLinux) // TODO Windows: Issue #20127
+	testRequires(c, DaemonIsLinux) // TODO Windows: Issue #20127 id:301 gh:302
 	var (
 		name     = "testbuildvolumescontent"
 		expected = "some text"
@@ -3677,7 +3677,7 @@ CMD cat /foo/file`),
 
 }
 
-// FIXME(vdemeester) part of this should be unit test, other part should be clearer
+// FIXME (vdemeester) part of this should be unit test, other part should be clearer id:76 gh:77
 func (s *DockerSuite) TestBuildRenamedDockerfile(c *check.C) {
 	ctx := fakecontext.New(c, "", fakecontext.WithFiles(map[string]string{
 		"Dockerfile":       "FROM busybox\nRUN echo from Dockerfile",
@@ -3788,7 +3788,7 @@ RUN find /tmp/`}))
 }
 
 func (s *DockerSuite) TestBuildFromStdinWithF(c *check.C) {
-	testRequires(c, DaemonIsLinux) // TODO Windows: This test is flaky; no idea why
+	testRequires(c, DaemonIsLinux) // TODO Windows: This test is flaky; no idea why id:105 gh:106
 	ctx := fakecontext.New(c, "", fakecontext.WithDockerfile(`FROM busybox
 RUN echo "from Dockerfile"`))
 	defer ctx.Close()
@@ -3884,7 +3884,7 @@ func (s *DockerSuite) TestBuildDockerfileOutsideContext(c *check.C) {
 	}
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:188 gh:189
 func (s *DockerSuite) TestBuildSpaces(c *check.C) {
 	// Test to make sure that leading/trailing spaces on a command
 	// doesn't change the error msg we get
@@ -3969,7 +3969,7 @@ RUN echo "  \
 
 // #4393
 func (s *DockerSuite) TestBuildVolumeFileExistsinContainer(c *check.C) {
-	testRequires(c, DaemonIsLinux) // TODO Windows: This should error out
+	testRequires(c, DaemonIsLinux) // TODO Windows: This should error out id:724 gh:725
 	buildImage("docker-test-errcreatevolumewithfile", build.WithDockerfile(`
 	FROM busybox
 	RUN touch /foo
@@ -3980,7 +3980,7 @@ func (s *DockerSuite) TestBuildVolumeFileExistsinContainer(c *check.C) {
 	})
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:305 gh:306
 func (s *DockerSuite) TestBuildMissingArgs(c *check.C) {
 	// Test to make sure that all Dockerfile commands (except the ones listed
 	// in skipCmds) will generate an error if no args are provided.
@@ -4090,7 +4090,7 @@ RUN cat /proc/self/cgroup
 	}
 }
 
-// FIXME(vdemeester) could be a unit test
+// FIXME (vdemeester) could be a unit test id:79 gh:80
 func (s *DockerSuite) TestBuildNoDupOutput(c *check.C) {
 	// Check to make sure our build output prints the Dockerfile cmd
 	// property - there was a bug that caused it to be duplicated on the
@@ -4107,7 +4107,7 @@ func (s *DockerSuite) TestBuildNoDupOutput(c *check.C) {
 }
 
 // GH15826
-// FIXME(vdemeester) could be a unit test
+// FIXME (vdemeester) could be a unit test id:106 gh:107
 func (s *DockerSuite) TestBuildStartsFromOne(c *check.C) {
 	// Explicit check to ensure that build starts from step 1 rather than 0
 	name := "testbuildstartsfromone"
@@ -4514,7 +4514,7 @@ func (s *DockerSuite) TestBuildBuildTimeArgOverrideArgDefinedBeforeEnv(c *check.
 	}
 }
 
-// FIXME(vdemeester) might be useful to merge with the one above ?
+// FIXME (vdemeester) might be useful to merge with the one above ? id:190 gh:191
 func (s *DockerSuite) TestBuildBuildTimeArgOverrideEnvDefinedBeforeArg(c *check.C) {
 	testRequires(c, DaemonIsLinux) // Windows does not support ARG
 	imgName := "bldargtest"
@@ -5373,7 +5373,7 @@ func (s *DockerSuite) TestBuildDeleteCommittedFile(c *check.C) {
 
 // #20083
 func (s *DockerSuite) TestBuildDockerignoreComment(c *check.C) {
-	// TODO Windows: Figure out why this test is flakey on TP5. If you add
+	// TODO Windows: Figure out why this test is flakey on TP5. If you add id:726 gh:727
 	// something like RUN sleep 5, or even RUN ls /tmp after the ADD line,
 	// it is more reliable, but that's not a good fix.
 	testRequires(c, DaemonIsLinux)
@@ -6365,7 +6365,7 @@ func (s *DockerSuite) TestBuildWorkdirCmd(c *check.C) {
 	c.Assert(strings.Count(result.Combined(), "Using cache"), checker.Equals, 1)
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:353 gh:354
 func (s *DockerSuite) TestBuildLineErrorOnBuild(c *check.C) {
 	name := "test_build_line_error_onbuild"
 	buildImage(name, build.WithDockerfile(`FROM busybox
@@ -6376,7 +6376,7 @@ func (s *DockerSuite) TestBuildLineErrorOnBuild(c *check.C) {
 	})
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:84 gh:85
 func (s *DockerSuite) TestBuildLineErrorUnknownInstruction(c *check.C) {
 	name := "test_build_line_error_unknown_instruction"
 	cli.Docker(cli.Build(name), build.WithDockerfile(`FROM busybox
@@ -6390,7 +6390,7 @@ func (s *DockerSuite) TestBuildLineErrorUnknownInstruction(c *check.C) {
 	})
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:107 gh:108
 func (s *DockerSuite) TestBuildLineErrorWithEmptyLines(c *check.C) {
 	name := "test_build_line_error_with_empty_lines"
 	cli.Docker(cli.Build(name), build.WithDockerfile(`
@@ -6407,7 +6407,7 @@ func (s *DockerSuite) TestBuildLineErrorWithEmptyLines(c *check.C) {
 	})
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:193 gh:194
 func (s *DockerSuite) TestBuildLineErrorWithComments(c *check.C) {
 	name := "test_build_line_error_with_comments"
 	cli.Docker(cli.Build(name), build.WithDockerfile(`FROM busybox

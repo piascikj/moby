@@ -79,7 +79,7 @@ func (ra *ResourceAllocator) AttachNetwork(ctx context.Context, request *api.Att
 			Message:   "created",
 		},
 		DesiredState: api.TaskStateRunning,
-		// TODO: Add Network attachment.
+		// TODO: Add Network attachment. id:483 gh:484
 	}
 
 	if err := ra.store.Update(func(tx store.Tx) error {

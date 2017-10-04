@@ -200,7 +200,7 @@ func parsePAXTime(s string) (time.Time, error) {
 	return time.Unix(secs, int64(nsecs)), nil
 }
 
-// TODO(dsnet): Implement formatPAXTime.
+// TODO (dsnet): Implement formatPAXTime. id:244 gh:245
 
 // parsePAXRecord parses the input PAX record string into a key-value pair.
 // If parsing is successful, it will slice off the currently read record and

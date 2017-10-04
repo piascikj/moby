@@ -542,7 +542,7 @@ func (s *DockerRegistrySuite) TestPullFailsWithAlteredManifest(c *check.C) {
 	imgManifest.Layers[0].Digest = digest.Digest("sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
 
 	// Move the existing data file aside, so that we can replace it with a
-	// malicious blob of data. NOTE: we defer the returned undo func.
+	// malicious blob of data. NOTE: we defer the returned undo func. id:728 gh:729
 	undo := s.reg.TempMoveBlobData(c, manifestDigest)
 	defer undo()
 
@@ -584,7 +584,7 @@ func (s *DockerSchema1RegistrySuite) TestPullFailsWithAlteredManifest(c *check.C
 	}
 
 	// Move the existing data file aside, so that we can replace it with a
-	// malicious blob of data. NOTE: we defer the returned undo func.
+	// malicious blob of data. NOTE: we defer the returned undo func. id:379 gh:380
 	undo := s.reg.TempMoveBlobData(c, manifestDigest)
 	defer undo()
 
@@ -624,7 +624,7 @@ func (s *DockerRegistrySuite) TestPullFailsWithAlteredLayer(c *check.C) {
 	targetLayerDigest := imgManifest.Layers[0].Digest
 
 	// Move the existing data file aside, so that we can replace it with a
-	// malicious blob of data. NOTE: we defer the returned undo func.
+	// malicious blob of data. NOTE: we defer the returned undo func. id:87 gh:88
 	undo := s.reg.TempMoveBlobData(c, targetLayerDigest)
 	defer undo()
 
@@ -667,7 +667,7 @@ func (s *DockerSchema1RegistrySuite) TestPullFailsWithAlteredLayer(c *check.C) {
 	targetLayerDigest := imgManifest.FSLayers[0].BlobSum
 
 	// Move the existing data file aside, so that we can replace it with a
-	// malicious blob of data. NOTE: we defer the returned undo func.
+	// malicious blob of data. NOTE: we defer the returned undo func. id:108 gh:109
 	undo := s.reg.TempMoveBlobData(c, targetLayerDigest)
 	defer undo()
 

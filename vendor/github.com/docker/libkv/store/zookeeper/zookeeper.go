@@ -75,7 +75,7 @@ func (s *Zookeeper) Get(key string) (pair *store.KVPair, err error) {
 		return nil, err
 	}
 
-	// FIXME handle very rare cases where Get returns the
+	// FIXME handle very rare cases where Get returns the id:310 gh:311
 	// SOH control character instead of the actual value
 	if string(resp) == SOH {
 		return s.Get(store.Normalize(key))
@@ -247,7 +247,7 @@ func (s *Zookeeper) List(directory string) ([]*store.KVPair, error) {
 
 	kv := []*store.KVPair{}
 
-	// FIXME Costly Get request for each child key..
+	// FIXME Costly Get request for each child key.. id:415 gh:416
 	for _, key := range keys {
 		pair, err := s.Get(strings.TrimSuffix(directory, "/") + s.normalize(key))
 		if err != nil {
@@ -403,7 +403,7 @@ func (l *zookeeperLock) Lock(stopChan chan struct{}) (<-chan struct{}, error) {
 
 	if err == nil {
 		// We hold the lock, we can set our value
-		// FIXME: The value is left behind
+		// FIXME: The value is left behind id:855 gh:856
 		// (problematic for leader election)
 		_, err = l.client.Set(l.key, l.value, -1)
 	}

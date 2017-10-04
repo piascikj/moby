@@ -333,7 +333,7 @@ func (s *DockerSwarmSuite) TestAPISwarmLeaderElection(c *check.C) {
 	// add the d1, the initial leader, back
 	d1.Start(c)
 
-	// TODO(stevvooe): may need to wait for rejoin here
+	// TODO (stevvooe): may need to wait for rejoin here id:718 gh:719
 
 	// wait for possible election
 	waitAndAssert(c, defaultReconciliationTimeout, checkLeader(d1, d2, d3), checker.True)
@@ -795,7 +795,7 @@ func (s *DockerSwarmSuite) TestAPISwarmRestartCluster(c *check.C) {
 				if err := daemon.StopWithError(); err != nil {
 					errs <- err
 				}
-				// FIXME(vdemeester) This is duplicated…
+				// FIXME (vdemeester) This is duplicated… id:295 gh:296
 				if root := os.Getenv("DOCKER_REMAP_ROOT"); root != "" {
 					daemon.Root = filepath.Dir(daemon.Root)
 				}

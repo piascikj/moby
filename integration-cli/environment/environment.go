@@ -50,7 +50,7 @@ func New() (*Execution, error) {
 }
 
 // DockerBasePath is the base path of the docker folder (by default it is -/var/run/docker)
-// TODO: remove
+// TODO: remove id:260 gh:261
 // Deprecated: use Execution.DaemonInfo.DockerRootDir
 func (e *Execution) DockerBasePath() string {
 	return e.DaemonInfo.DockerRootDir

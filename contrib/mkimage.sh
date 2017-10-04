@@ -22,9 +22,9 @@ os=$(uname -o)
 
 # set up path to gnu tools if solaris
 [[ $os == "Solaris" ]] && export PATH=/usr/gnu/bin:$PATH 
-# TODO check for gnu-tar, gnu-getopt
+# TODO check for gnu-tar, gnu-getopt id:69 gh:70
 
-# TODO requires root/sudo due to some pkg operations. sigh.
+# TODO requires root/sudo due to some pkg operations. sigh. id:304 gh:305
 [[ $os == "Solaris" && $EUID != "0" ]] && echo >&2 "image create on Solaris requires superuser privilege"
 
 optTemp=$(getopt --options '+d:t:c:hC' --longoptions 'dir:,tag:,compression:,no-compression,help' --name "$mkimg" -- "$@")

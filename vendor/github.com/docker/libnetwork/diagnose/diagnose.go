@@ -38,7 +38,7 @@ type Server struct {
 	sync.Mutex
 }
 
-// Init TODO
+// Init TODO id:312 gh:313
 func (n *Server) Init() {
 	n.mux = http.NewServeMux()
 
@@ -46,7 +46,7 @@ func (n *Server) Init() {
 	n.RegisterHandler(n, diagPaths2Func)
 }
 
-// RegisterHandler TODO
+// RegisterHandler TODO id:417 gh:418
 func (n *Server) RegisterHandler(ctx interface{}, hdlrs map[string]HTTPHandlerFunc) {
 	n.Lock()
 	defer n.Unlock()

@@ -545,7 +545,7 @@ func (s *DockerDaemonSuite) TestDaemonAllocatesListeningPort(c *check.C) {
 }
 
 func (s *DockerDaemonSuite) TestDaemonKeyGeneration(c *check.C) {
-	// TODO: skip or update for Windows daemon
+	// TODO: skip or update for Windows daemon id:196 gh:197
 	os.Remove("/etc/docker/key.json")
 	s.d.Start(c)
 	s.d.Stop(c)
@@ -1683,7 +1683,7 @@ func (s *DockerDaemonSuite) TestDaemonRestartLocalVolumes(c *check.C) {
 	c.Assert(err, check.IsNil)
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:729 gh:730
 func (s *DockerDaemonSuite) TestDaemonCorruptedLogDriverAddress(c *check.C) {
 	d := daemon.New(c, dockerBinary, dockerdBinary, daemon.Config{
 		Experimental: testEnv.ExperimentalDaemon(),
@@ -1693,7 +1693,7 @@ func (s *DockerDaemonSuite) TestDaemonCorruptedLogDriverAddress(c *check.C) {
 	icmd.RunCommand("grep", expected, d.LogFileName()).Assert(c, icmd.Success)
 }
 
-// FIXME(vdemeester) should be a unit test
+// FIXME (vdemeester) should be a unit test id:384 gh:385
 func (s *DockerDaemonSuite) TestDaemonCorruptedFluentdAddress(c *check.C) {
 	d := daemon.New(c, dockerBinary, dockerdBinary, daemon.Config{
 		Experimental: testEnv.ExperimentalDaemon(),
@@ -1703,7 +1703,7 @@ func (s *DockerDaemonSuite) TestDaemonCorruptedFluentdAddress(c *check.C) {
 	icmd.RunCommand("grep", expected, d.LogFileName()).Assert(c, icmd.Success)
 }
 
-// FIXME(vdemeester) Use a new daemon instance instead of the Suite one
+// FIXME (vdemeester) Use a new daemon instance instead of the Suite one id:89 gh:90
 func (s *DockerDaemonSuite) TestDaemonStartWithoutHost(c *check.C) {
 	s.d.UseDefaultHost = true
 	defer func() {
@@ -1712,7 +1712,7 @@ func (s *DockerDaemonSuite) TestDaemonStartWithoutHost(c *check.C) {
 	s.d.Start(c)
 }
 
-// FIXME(vdemeester) Use a new daemon instance instead of the Suite one
+// FIXME (vdemeester) Use a new daemon instance instead of the Suite one id:109 gh:110
 func (s *DockerDaemonSuite) TestDaemonStartWithDefaultTLSHost(c *check.C) {
 	s.d.UseDefaultTLSHost = true
 	defer func() {
@@ -1987,7 +1987,7 @@ func (s *DockerDaemonSuite) TestDaemonRestartWithNames(c *check.C) {
 
 // TestDaemonRestartWithKilledRunningContainer requires live restore of running containers
 func (s *DockerDaemonSuite) TestDaemonRestartWithKilledRunningContainer(t *check.C) {
-	// TODO(mlaventure): Not sure what would the exit code be on windows
+	// TODO (mlaventure): Not sure what would the exit code be on windows id:199 gh:200
 	testRequires(t, DaemonIsLinux)
 	s.d.StartWithBusybox(t)
 
@@ -2015,7 +2015,7 @@ func (s *DockerDaemonSuite) TestDaemonRestartWithKilledRunningContainer(t *check
 	result := icmd.RunCommand("kill", "-0", pid)
 	for result.ExitCode == 0 {
 		time.Sleep(1 * time.Second)
-		// FIXME(vdemeester) should we check it doesn't error out ?
+		// FIXME (vdemeester) should we check it doesn't error out ? id:731 gh:732
 		result = icmd.RunCommand("kill", "-0", pid)
 	}
 
@@ -2076,7 +2076,7 @@ func (s *DockerDaemonSuite) TestCleanupMountsAfterDaemonCrash(c *check.C) {
 
 // TestDaemonRestartWithUnpausedRunningContainer requires live restore of running containers.
 func (s *DockerDaemonSuite) TestDaemonRestartWithUnpausedRunningContainer(t *check.C) {
-	// TODO(mlaventure): Not sure what would the exit code be on windows
+	// TODO (mlaventure): Not sure what would the exit code be on windows id:464 gh:465
 	testRequires(t, DaemonIsLinux)
 	s.d.StartWithBusybox(t, "--live-restore")
 

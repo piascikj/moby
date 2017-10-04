@@ -908,7 +908,7 @@ fill:
 	// to cause the system to run out of
 	// memory by sending very large strings.
 	//
-	// NOTE: this works because the argument
+	// NOTE: this works because the argument id:418 gh:419
 	// passed to (*fwd.Reader).ReadFull escapes
 	// to the heap; its argument may, in turn,
 	// be passed to the underlying reader, and

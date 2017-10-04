@@ -12,7 +12,7 @@ const (
 	missingParameter = "missing parameter"
 )
 
-// NetDbPaths2Func TODO
+// NetDbPaths2Func TODO id:371 gh:372
 var NetDbPaths2Func = map[string]diagnose.HTTPHandlerFunc{
 	"/join":         dbJoin,
 	"/networkpeers": dbPeers,

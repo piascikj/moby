@@ -60,7 +60,7 @@ func (l *JSONFileLogger) readLogs(logWatcher *logger.LogWatcher, config logger.R
 	// This will block writes!!!
 	l.mu.RLock()
 
-	// TODO it would be nice to move a lot of this reader implementation to the rotate logger object
+	// TODO it would be nice to move a lot of this reader implementation to the rotate logger object id:226 gh:227
 	pth := l.writer.LogPath()
 	var files []io.ReadSeeker
 	for i := l.writer.MaxFiles(); i > 1; i-- {

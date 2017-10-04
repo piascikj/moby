@@ -182,11 +182,11 @@ while [ $# -gt 0 ]; do
 							application/vnd.docker.image.rootfs.diff.tar.gzip)
 								layerTar="$layerId/layer.tar"
 								layerFiles=( "${layerFiles[@]}" "$layerTar" )
-								# TODO figure out why "-C -" doesn't work here
+								# TODO figure out why "-C -" doesn't work here id:302 gh:304
 								# "curl: (33) HTTP server doesn't seem to support byte ranges. Cannot resume."
 								# "HTTP/1.1 416 Requested Range Not Satisfiable"
 								if [ -f "$dir/$layerTar" ]; then
-									# TODO hackpatch for no -C support :'(
+									# TODO hackpatch for no -C support :'( id:177 gh:178
 									echo "skipping existing ${layerId:0:12}"
 									continue
 								fi
@@ -252,11 +252,11 @@ while [ $# -gt 0 ]; do
 
 				echo "$imageJson" > "$dir/$layerId/json"
 
-				# TODO figure out why "-C -" doesn't work here
+				# TODO figure out why "-C -" doesn't work here id:22 gh:23
 				# "curl: (33) HTTP server doesn't seem to support byte ranges. Cannot resume."
 				# "HTTP/1.1 416 Requested Range Not Satisfiable"
 				if [ -f "$dir/$layerId/layer.tar" ]; then
-					# TODO hackpatch for no -C support :'(
+					# TODO hackpatch for no -C support :'( id:45 gh:46
 					echo "skipping existing ${layerId:0:12}"
 					continue
 				fi

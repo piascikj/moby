@@ -39,7 +39,7 @@ func (daemon *Daemon) containerCreate(params types.ContainerCreateConfig, manage
 		return containertypes.ContainerCreateCreatedBody{}, validationError{errors.New("Config cannot be empty in order to create a container")}
 	}
 
-	// TODO: @jhowardmsft LCOW support - at a later point, can remove the hard-coding
+	// TODO: @jhowardmsft LCOW support - at a later point, can remove the hard-coding id:34 gh:35
 	// to force the platform to be linux.
 	// Default the platform if not supplied
 	if params.Platform == "" {

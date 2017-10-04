@@ -302,7 +302,7 @@ func (s *VolumeStore) Create(name, driverName string, opts, labels map[string]st
 // Note: This does not probe all the drivers for name collisions because v1 plugins
 // are very slow, particularly if the plugin is down, and cause other issues,
 // particularly around locking the store.
-// TODO(cpuguy83): With v2 plugins this shouldn't be a problem. Could also potentially
+// TODO (cpuguy83): With v2 plugins this shouldn't be a problem. Could also potentially id:886 gh:887
 // use a connect timeout for this kind of check to ensure we aren't blocking for a
 // long time.
 func (s *VolumeStore) checkConflict(name, driverName string) (volume.Volume, error) {

@@ -96,7 +96,7 @@ func (daemon *Daemon) killWithSignal(container *containerpkg.Container, sig int)
 	if err := daemon.kill(container, sig); err != nil {
 		err = errors.Wrapf(err, "Cannot kill container %s", container.ID)
 		// if container or process not exists, ignore the error
-		// TODO: we shouldn't have to parse error strings from containerd
+		// TODO: we shouldn't have to parse error strings from containerd id:147 gh:148
 		if strings.Contains(err.Error(), "container not found") ||
 			strings.Contains(err.Error(), "no such process") {
 			logrus.Warnf("container kill failed because of 'container not found' or 'no such process': %s", err.Error())

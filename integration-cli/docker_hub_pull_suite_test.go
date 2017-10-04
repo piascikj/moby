@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	// FIXME. Temporarily turning this off for Windows as GH16039 was breaking
+	// FIXME . Temporarily turning this off for Windows as GH16039 was breaking id:133 gh:134
 	// Windows to Linux CI @icecrime
 	if runtime.GOOS != "windows" {
 		check.Suite(newDockerHubPullSuite())
